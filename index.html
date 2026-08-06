@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Godoy Marquesini Advocacia — Direito do Trabalhador | Bauru e todo o Brasil</title>
+<meta name="description" content="Escritório de advocacia dedicado aos direitos do trabalhador. Atuação em Direito Trabalhista, Previdenciário e Cível, com atendimento online para todo o Brasil.">
+<style>
+@font-face{font-family:'DM Serif Display';src:url('assets/fonts/dm-serif-display-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'DM Serif Display';src:url('assets/fonts/dm-serif-display-latin-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('assets/fonts/montserrat-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('assets/fonts/montserrat-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('assets/fonts/montserrat-latin-700-normal.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('assets/fonts/montserrat-latin-800-normal.woff2') format('woff2');font-weight:800;font-display:swap}
+
+:root{
+  --navy:#0E2A47;
+  --navy-2:#123356;
+  --navy-deep:#0A2038;
+  --gold:#B08D57;
+  --gold-soft:#C6A876;
+  --ink:#1E2A38;
+  --ink-soft:#5A6b7b;
+  --paper:#FBFAF7;
+  --paper-2:#F3F1EB;
+  --line:#E5E1D8;
+  --line-navy:rgba(255,255,255,.12);
+  --white:#FFFFFF;
+  --r:12px;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:'Montserrat',system-ui,sans-serif;font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+
+h1,h2,h3,h4{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.1;letter-spacing:-.01em}
+h1{font-size:clamp(2.3rem,5vw,3.7rem)}
+h2{font-size:clamp(1.85rem,3.4vw,2.7rem)}
+h3{font-size:1.28rem;line-height:1.25}
+em{font-style:italic;color:var(--gold)}
+.kicker{
+  font-family:'Montserrat';font-size:.7rem;font-weight:700;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:11px;margin-bottom:20px;
+}
+.kicker::before{content:'';width:28px;height:1px;background:var(--gold)}
+.kicker.center{justify-content:center}
+.lead{color:var(--ink-soft);font-size:1.04rem;max-width:60ch}
+
+/* botões */
+.btn{
+  display:inline-flex;align-items:center;gap:11px;background:var(--navy);color:var(--white);
+  font-weight:700;font-size:.84rem;letter-spacing:.01em;padding:15px 28px;border-radius:6px;
+  border:1px solid var(--navy);cursor:pointer;transition:.25s;
+}
+.btn:hover{background:var(--navy-deep);transform:translateY(-2px);box-shadow:0 14px 30px rgba(14,42,71,.22)}
+.btn .arw{display:grid;place-items:center;font-size:.9rem}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--navy-deep)}
+.btn-gold:hover{background:var(--gold-soft);border-color:var(--gold-soft);box-shadow:0 14px 30px rgba(176,141,87,.32)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{background:var(--white);border-color:var(--navy);box-shadow:none}
+.btn-ghost.on-navy{color:var(--white);border-color:var(--line-navy)}
+.btn-ghost.on-navy:hover{background:rgba(255,255,255,.06);border-color:var(--gold)}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,250,247,.85);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:.3s}
+header.solid{background:rgba(251,250,247,.97);border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:82px}
+.brand{display:flex;flex-direction:column;line-height:1;gap:5px}
+.brand b{font-family:'DM Serif Display';font-size:1.4rem;color:var(--navy);letter-spacing:.01em}
+.brand small{font-size:.54rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.menu{display:flex;gap:30px;font-size:.83rem;font-weight:600}
+.menu a{color:var(--ink-soft);position:relative;transition:.2s}
+.menu a:hover{color:var(--navy)}
+.menu a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--gold);transition:.25s}
+.menu a:hover::after{width:100%}
+.nav .btn{padding:11px 20px;font-size:.76rem}
+.burger{display:none;background:none;border:none;color:var(--navy);font-size:1.5rem;cursor:pointer}
+
+/* hero */
+.hero{position:relative;background:var(--navy);color:var(--white);padding:150px 0 110px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(1100px 520px at 78% 12%,rgba(176,141,87,.18),transparent 60%),linear-gradient(180deg,var(--navy-deep),var(--navy) 45%,var(--navy-2))}
+.hero-col{position:absolute;top:0;right:0;bottom:0;width:44%;z-index:1;opacity:.5;
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 2px,transparent 2px 64px);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 55%);mask-image:linear-gradient(90deg,transparent,#000 55%)}
+.hero .wrap{position:relative;z-index:2}
+.hero-inner{max-width:720px}
+.hero h1{color:var(--white);margin-bottom:24px}
+.hero .lead{color:rgba(255,255,255,.78);font-size:1.1rem;margin-bottom:36px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+.hero-badges{display:flex;gap:38px;flex-wrap:wrap;padding-top:30px;border-top:1px solid var(--line-navy)}
+.hero-badges div b{display:block;font-family:'DM Serif Display';font-size:1.7rem;color:var(--gold-soft)}
+.hero-badges div span{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.hero-mono{position:absolute;right:4%;top:50%;transform:translateY(-50%);z-index:1;font-family:'DM Serif Display';font-size:23rem;line-height:1;color:rgba(255,255,255,.04);letter-spacing:-.04em}
+
+/* seções */
+section{padding:104px 0;position:relative}
+.sec-head{max-width:640px;margin-bottom:54px}
+.sec-head.center{margin-inline:auto;text-align:center}
+.sec-head.center .lead{margin-inline:auto}
+.alt{background:var(--paper-2)}
+
+/* áreas */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pillar{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:38px 32px;transition:.3s;position:relative;overflow:hidden}
+.pillar::after{content:'';position:absolute;left:0;top:0;height:3px;width:0;background:var(--gold);transition:.35s}
+.pillar:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(14,42,71,.1);border-color:transparent}
+.pillar:hover::after{width:100%}
+.pillar .ico{width:52px;height:52px;border-radius:10px;background:var(--navy);color:var(--gold-soft);display:grid;place-items:center;margin-bottom:22px}
+.pillar h3{color:var(--navy);margin-bottom:12px}
+.pillar p{font-size:.9rem;color:var(--ink-soft);margin-bottom:20px}
+.pillar .tag{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);background:rgba(176,141,87,.1);padding:4px 10px;border-radius:100px;position:absolute;top:22px;right:22px}
+.pillar .more{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);display:inline-flex;gap:8px;align-items:center}
+.pillar .more::after{content:'→';transition:.25s}
+.pillar:hover .more::after{transform:translateX(5px)}
+.subareas{margin-top:40px;text-align:center}
+.subareas .lbl{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:11px;justify-content:center}
+.chip{border:1px solid var(--line);background:var(--white);border-radius:100px;padding:9px 20px;font-size:.8rem;font-weight:600;color:var(--navy);transition:.25s}
+.chip:hover{border-color:var(--gold);color:var(--gold)}
+
+/* sobre */
+.sobre{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+.sobre-visual{position:relative;aspect-ratio:4/5;border-radius:16px;background:linear-gradient(155deg,var(--navy),var(--navy-deep));display:grid;place-items:center;overflow:hidden;box-shadow:0 30px 60px rgba(14,42,71,.2)}
+.sobre-visual .frame{position:absolute;inset:18px;border:1px solid var(--line-navy);border-radius:10px}
+.sobre-visual .mono{font-family:'DM Serif Display';font-size:8rem;color:var(--gold-soft);opacity:.85}
+.sobre-visual .cap{position:absolute;bottom:26px;left:26px;right:26px;color:rgba(255,255,255,.6);font-size:.72rem;letter-spacing:.04em}
+.sobre-visual .cap b{display:block;font-family:'DM Serif Display';font-size:1.1rem;color:var(--white);margin-bottom:2px;letter-spacing:0}
+.sobre-text p{color:var(--ink-soft);margin-bottom:16px}
+.sobre-text strong{color:var(--ink)}
+.sig{margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.sig b{font-family:'DM Serif Display';font-size:1.15rem;color:var(--navy);display:block}
+.sig span{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+
+/* como funciona */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:st}
+.step{position:relative;padding-top:14px}
+.step .n{counter-increment:st;font-family:'DM Serif Display';font-size:2.6rem;color:var(--gold);opacity:.55;line-height:1}
+.step .n::before{content:'0' counter(st)}
+.step h3{font-size:1.06rem;color:var(--navy);margin:12px 0 8px}
+.step p{font-size:.86rem;color:var(--ink-soft)}
+.step:not(:last-child)::after{content:'';position:absolute;top:20px;right:-11px;width:22px;height:1px;background:var(--line)}
+
+/* equipe */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.member{background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.3s}
+.member:hover{transform:translateY(-5px);box-shadow:0 20px 44px rgba(14,42,71,.1)}
+.member .av{aspect-ratio:1/1;background:linear-gradient(155deg,var(--navy-2),var(--navy-deep));display:grid;place-items:center;position:relative}
+.member .av span{font-family:'DM Serif Display';font-size:2.6rem;color:var(--gold-soft)}
+.member .av::after{content:'';position:absolute;inset:0;box-shadow:inset 0 -50px 60px rgba(10,32,56,.6)}
+.member .body{padding:22px 22px 26px}
+.member h3{font-size:1.04rem;color:var(--navy);margin-bottom:3px}
+.member .role{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.member p{font-size:.82rem;color:var(--ink-soft)}
+
+/* depoimentos */
+.reviews{background:var(--navy);color:var(--white)}
+.reviews .kicker{color:var(--gold-soft)}
+.reviews h2{color:var(--white)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:12px}
+.rev{background:rgba(255,255,255,.04);border:1px solid var(--line-navy);border-radius:var(--r);padding:30px 28px;display:flex;flex-direction:column;gap:16px}
+.rev .stars{color:var(--gold-soft);letter-spacing:3px;font-size:.9rem}
+.rev p{font-size:.92rem;color:rgba(255,255,255,.82);font-style:italic;flex:1}
+.rev .who{font-size:.78rem;font-weight:700;color:var(--white)}
+.rev .who span{display:block;font-weight:400;color:rgba(255,255,255,.5);font-size:.72rem;letter-spacing:.04em}
+.reviews .src{text-align:center;margin-top:34px;font-size:.8rem;color:rgba(255,255,255,.55)}
+.reviews .src b{color:var(--gold-soft)}
+
+/* artigos */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.post{background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.post:hover{transform:translateY(-5px);box-shadow:0 20px 44px rgba(14,42,71,.1)}
+.post .top{height:8px;background:linear-gradient(90deg,var(--gold),var(--navy))}
+.post .body{padding:26px 26px 28px;flex:1;display:flex;flex-direction:column}
+.post .cat{font-size:.64rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.post h3{font-size:1.1rem;color:var(--navy);margin-bottom:10px;line-height:1.25}
+.post p{font-size:.85rem;color:var(--ink-soft);flex:1;margin-bottom:16px}
+.post .meta{font-size:.72rem;color:var(--ink-soft);letter-spacing:.04em}
+
+/* faq */
+.faq{max-width:820px;margin:0 auto}
+.q{border:1px solid var(--line);border-radius:10px;margin-bottom:12px;background:var(--white);overflow:hidden;transition:.3s}
+.q.open{border-color:var(--gold)}
+.q button{width:100%;text-align:left;background:none;border:none;color:var(--navy);font-family:'Montserrat';font-size:.94rem;font-weight:700;cursor:pointer;padding:22px 26px;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.q button i{font-style:normal;color:var(--gold);font-size:1.3rem;transition:.3s;flex:none;line-height:1}
+.q.open i{transform:rotate(45deg)}
+.q .a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.q .a p{padding:0 26px 24px;font-size:.88rem;color:var(--ink-soft)}
+
+/* contato */
+.contato{background:var(--navy-deep);color:var(--white)}
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.contato .kicker{color:var(--gold-soft)}
+.contato h2{color:var(--white)}
+.contato .lead{color:rgba(255,255,255,.72)}
+.ct-list{list-style:none;margin-top:30px;display:flex;flex-direction:column;gap:20px}
+.ct-list li{display:flex;gap:16px;align-items:flex-start}
+.ct-list .ic{width:42px;height:42px;flex:none;border-radius:9px;border:1px solid var(--line-navy);display:grid;place-items:center;color:var(--gold-soft)}
+.ct-list b{display:block;font-size:.92rem;color:var(--white)}
+.ct-list span{font-size:.84rem;color:rgba(255,255,255,.62)}
+.form{background:rgba(255,255,255,.04);border:1px solid var(--line-navy);border-radius:16px;padding:34px}
+.form h3{color:var(--white);margin-bottom:20px;font-size:1.3rem}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:7px}
+.field input,.field textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--line-navy);border-radius:8px;padding:13px 15px;color:var(--white);font-family:inherit;font-size:.9rem}
+.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.35)}
+.form .btn{width:100%;justify-content:center;margin-top:6px}
+
+/* footer */
+footer{background:var(--navy-deep);color:rgba(255,255,255,.6);padding:60px 0 0;border-top:1px solid var(--line-navy)}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;padding-bottom:46px}
+.foot .brand b{color:var(--white)}
+.foot .about{font-size:.85rem;margin:18px 0 20px;max-width:36ch}
+.socials{display:flex;gap:10px}
+.socials a{width:36px;height:36px;border:1px solid var(--line-navy);border-radius:50%;display:grid;place-items:center;color:rgba(255,255,255,.6);transition:.25s}
+.socials a:hover{border-color:var(--gold);color:var(--gold-soft)}
+.foot h4{font-family:'Montserrat';font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:18px}
+.foot ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:.85rem}
+.foot ul a:hover{color:var(--gold-soft)}
+.oab{border-top:1px solid var(--line-navy);padding:22px 0;font-size:.68rem;color:rgba(255,255,255,.4);line-height:1.7}
+.foot-bar{border-top:1px solid var(--line-navy);padding:20px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.72rem;color:rgba(255,255,255,.4)}
+
+/* whatsapp */
+.wa{position:fixed;right:22px;bottom:22px;z-index:120;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 26px rgba(0,0,0,.3);transition:.25s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:28px;height:28px;fill:#fff}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:940px){
+  .pillars,.steps,.team,.rev-grid,.posts{grid-template-columns:repeat(2,1fr)}
+  .sobre,.ct-grid{grid-template-columns:1fr;gap:40px}
+  .step:not(:last-child)::after{display:none}
+  .hero-mono{display:none}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .menu,.nav .btn{display:none}
+  .burger{display:block}
+  section{padding:72px 0}
+  .hero{padding:130px 0 80px}
+  .pillars,.steps,.team,.rev-grid,.posts{grid-template-columns:1fr}
+  .hero-badges{gap:24px}
+  .foot{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a href="#top" class="brand"><b>Godoy Marquesini</b><small>Advocacia</small></a>
+    <nav class="menu">
+      <a href="#areas">Áreas de atuação</a>
+      <a href="#sobre">O escritório</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#artigos">Artigos</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="#contato" class="btn btn-gold">Falar no WhatsApp</a>
+    <button class="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-col"></div>
+  <span class="hero-mono">GM</span>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="kicker">Advocacia dedicada ao trabalhador</span>
+      <h1>Seus direitos merecem <em>quem os defenda</em> com técnica e cuidado</h1>
+      <p class="lead">Escritório especializado em Direito do Trabalho, com atuação também em Previdenciário e Cível. Atendimento humano e online, para toda a Bauru e todo o Brasil.</p>
+      <div class="hero-cta">
+        <a href="#contato" class="btn btn-gold">Falar no WhatsApp <span class="arw">→</span></a>
+        <a href="#areas" class="btn btn-ghost on-navy">Conhecer as áreas</a>
+      </div>
+      <div class="hero-badges">
+        <div><b>OAB/SP</b><span>Responsável técnica</span></div>
+        <div><b>Brasil</b><span>Atendimento online</span></div>
+        <div><b>Trabalhista</b><span>Nossa especialidade</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section id="areas" class="alt">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="kicker center">Áreas de atuação</span>
+      <h2>Onde podemos ajudar você</h2>
+      <p class="lead">Atuação concentrada na defesa de quem trabalha, com o mesmo cuidado nas questões previdenciárias e cíveis do dia a dia.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar rv">
+        <span class="tag">Especialidade</span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v18M5 8h14M7 8l-3 7a4 4 0 006 0L7 8zM17 8l-3 7a4 4 0 006 0l-3-7z"/></svg></div>
+        <h3>Direito Trabalhista</h3>
+        <p>A defesa dos direitos de quem trabalha: horas extras, verbas rescisórias, reconhecimento de vínculo, assédio e estabilidade.</p>
+        <span class="more">Ver mais</span>
+      </article>
+      <article class="pillar rv">
+        <span class="tag">Área nova</span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Direito Previdenciário</h3>
+        <p>Aposentadorias, auxílio-doença, benefícios negados pelo INSS e planejamento para se aposentar com segurança.</p>
+        <span class="more">Ver mais</span>
+      </article>
+      <article class="pillar rv">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4zM8 9h8M8 13h8M8 17h5"/></svg></div>
+        <h3>Direito Cível</h3>
+        <p>Contratos, indenizações, questões de família e do consumidor — orientação clara para resolver com segurança.</p>
+        <span class="more">Ver mais</span>
+      </article>
+    </div>
+    <div class="subareas rv">
+      <p class="lbl">Casos trabalhistas que mais atendemos</p>
+      <div class="chips">
+        <span class="chip">Estabilidade da gestante</span>
+        <span class="chip">FGTS atrasado</span>
+        <span class="chip">Acidentes de trabalho</span>
+        <span class="chip">Assédio no trabalho</span>
+        <span class="chip">Rescisão indireta</span>
+        <span class="chip">Horas extras</span>
+        <span class="chip">Reconhecimento de vínculo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="wrap sobre">
+    <div class="sobre-visual rv">
+      <div class="frame"></div>
+      <span class="mono">GM</span>
+      <div class="cap"><b>Dra. Viviane Colacino</b>Sócia · Responsável técnica</div>
+    </div>
+    <div class="sobre-text rv">
+      <span class="kicker">O escritório</span>
+      <h2>Uma advocacia próxima, técnica e humana</h2>
+      <p style="margin-top:20px">O <strong>Godoy Marquesini Advocacia</strong> nasceu para defender quem trabalha. Sob a responsabilidade da <strong>Dra. Viviane Colacino de Godoy Marquesini</strong>, o escritório construiu sua reputação no Direito do Trabalho e hoje amplia o cuidado para as áreas Previdenciária e Cível.</p>
+      <p>Acreditamos que o cliente precisa <strong>entender o próprio caso</strong>. Por isso explicamos cada etapa em linguagem clara, sem juridiquês, e mantemos o acompanhamento próximo do começo ao fim — presencialmente em Bauru ou de forma online, para todo o Brasil.</p>
+      <p>Análise inicial sem custo, orientação sobre documentos e uma estratégia sob medida para cada situação.</p>
+      <div class="sig">
+        <b>Godoy Marquesini Advocacia</b>
+        <span>Bauru/SP · Atuação em todo o Brasil</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="kicker center">Como funciona</span>
+      <h2>Do primeiro contato à solução</h2>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="n"></div><h3>Você relata o caso</h3><p>Uma conversa pelo WhatsApp com um advogado para entender a sua situação.</p></div>
+      <div class="step rv"><div class="n"></div><h3>Análise sem custo</h3><p>Avaliamos o caso sem cobrança inicial e orientamos quais documentos reunir.</p></div>
+      <div class="step rv"><div class="n"></div><h3>Estratégia sob medida</h3><p>Apresentamos as alternativas e o plano de ação mais adequado para você.</p></div>
+      <div class="step rv"><div class="n"></div><h3>Acompanhamento</h3><p>Você recebe atualizações e feedbacks em cada movimentação do processo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPE -->
+<section id="equipe">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="kicker center">Equipe</span>
+      <h2>Quem vai cuidar do seu caso</h2>
+      <p class="lead">Advogados e advogadas dedicados, cada um com sua área de atuação.</p>
+    </div>
+    <div class="team">
+      <article class="member rv"><div class="av"><span>VM</span></div><div class="body"><h3>Dra. Viviane C. de Godoy Marquesini</h3><p class="role">Sócia · OAB/SP 155.874</p><p>Responsável técnica. Atuação em Direito do Trabalho.</p></div></article>
+      <article class="member rv"><div class="av"><span>RR</span></div><div class="body"><h3>Dr. Rafael César Ramos</h3><p class="role">Advogado · OAB/SP 509.158</p><p>Direito Trabalhista.</p></div></article>
+      <article class="member rv"><div class="av"><span>AC</span></div><div class="body"><h3>Dra. Anna Carolina</h3><p class="role">Advogada · OAB/SP 000.000</p><p>Trabalhista e Previdenciário.</p></div></article>
+      <article class="member rv"><div class="av"><span>EP</span></div><div class="body"><h3>Dr. Eduardo Mangilli Pachelli</h3><p class="role">Advogado · OAB/SP 375.996</p><p>Direito Cível.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="reviews">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="kicker center">Depoimentos</span>
+      <h2>O que dizem nossos clientes</h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rev rv"><div class="stars">★★★★★</div><p>"Sem dúvidas a melhor advogada. Em pouco tempo resolve as questões burocráticas."</p><div class="who">Cliente Google<span>Avaliação verificada</span></div></div>
+      <div class="rev rv"><div class="stars">★★★★★</div><p>"Muito prestativa e educada, esclareceu todas as dúvidas e me orientou da melhor maneira."</p><div class="who">Cliente Google<span>Avaliação verificada</span></div></div>
+      <div class="rev rv"><div class="stars">★★★★★</div><p>"Amplo conhecimento jurídico, dedicação e empatia. A orientação clara me deu segurança."</p><div class="who">Cliente Google<span>Avaliação verificada</span></div></div>
+    </div>
+    <p class="src">Avaliações reais de clientes no <b>Google</b> · reunidas na página de depoimentos</p>
+  </div>
+</section>
+
+<!-- ARTIGOS -->
+<section id="artigos" class="alt">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="kicker center">Artigos</span>
+      <h2>Conteúdo que esclarece seus direitos</h2>
+      <p class="lead">Textos em linguagem simples sobre trabalho, INSS e situações do dia a dia.</p>
+    </div>
+    <div class="posts">
+      <article class="post rv"><div class="top"></div><div class="body"><p class="cat">Trabalhista</p><h3>Fui demitida grávida. Tenho direito à estabilidade?</h3><p>O que a lei garante à gestante, por quanto tempo, e o que fazer se a empresa demitir mesmo assim.</p><p class="meta">Por Godoy Marquesini · 8 min</p></div></article>
+      <article class="post rv"><div class="top"></div><div class="body"><p class="cat">Trabalhista</p><h3>Empresa não depositou meu FGTS. E agora?</h3><p>Como identificar o atraso, o que dá para cobrar na Justiça e os prazos que você precisa conhecer.</p><p class="meta">Por Godoy Marquesini · 6 min</p></div></article>
+      <article class="post rv"><div class="top"></div><div class="body"><p class="cat">Previdenciário</p><h3>Auxílio-doença negado pelo INSS: quando recorrer</h3><p>A diferença entre recurso administrativo e ação judicial, e os documentos que sustentam o pedido.</p><p class="meta">Por Godoy Marquesini · 7 min</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="kicker center">Dúvidas frequentes</span>
+      <h2>Perguntas que sempre nos fazem</h2>
+    </div>
+    <div class="faq">
+      <div class="q rv"><button>Vocês atendem em todo o Brasil? <i>+</i></button><div class="a"><p>Sim. O escritório fica em Bauru/SP, mas a maioria dos processos trabalhistas é digital. Com atendimento online e ferramentas de acompanhamento, cuidamos do seu caso onde quer que você esteja.</p></div></div>
+      <div class="q rv"><button>A primeira análise do meu caso tem custo? <i>+</i></button><div class="a"><p>Não. A conversa inicial e a análise do caso são sem custo. Você relata a situação, avaliamos e explicamos os caminhos possíveis antes de qualquer compromisso.</p></div></div>
+      <div class="q rv"><button>Já tenho advogado, mas não estou satisfeito. Posso trocar? <i>+</i></button><div class="a"><p>Sim, a qualquer momento. Você tem o direito de escolher quem defende seus interesses. A transição do processo costuma ser simples e nós orientamos cada passo.</p></div></div>
+      <div class="q rv"><button>Por que escolher um escritório especializado em trabalhista? <i>+</i></button><div class="a"><p>Direito do Trabalho é a especialidade da casa. Isso significa conhecer a fundo a jurisprudência, os prazos e as estratégias que realmente fazem diferença no seu caso — sem improviso.</p></div></div>
+      <div class="q rv"><button>Vocês garantem que eu vou ganhar a causa? <i>+</i></button><div class="a"><p>Não. Nenhum advogado pode garantir resultado — é vedado pelo Código de Ética da OAB. O que fazemos é apresentar com honestidade as chances, os riscos e os prazos, para você decidir com informação.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="contato">
+  <div class="wrap ct-grid">
+    <div class="rv">
+      <span class="kicker">Contato</span>
+      <h2>Vamos conversar sobre o seu caso</h2>
+      <p class="lead">Conte a sua situação pelo WhatsApp ou pelo formulário. Retornamos com a análise e os próximos passos.</p>
+      <ul class="ct-list">
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.6-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.5-.5z"/></svg></span><div><b>WhatsApp</b><span>(14) 99778-9631 · seg a sex, 9h às 18h</span></div></li>
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div><b>Escritório em Bauru/SP</b><span>Atendimento presencial com hora marcada</span></div></li>
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></span><div><b>Atendimento online</b><span>Para clientes de todo o Brasil</span></div></li>
+      </ul>
+    </div>
+    <div class="form rv">
+      <h3>Solicite uma análise</h3>
+      <div class="field"><label>Nome</label><input type="text" placeholder="Seu nome completo"></div>
+      <div class="field"><label>WhatsApp</label><input type="text" placeholder="(00) 00000-0000"></div>
+      <div class="field"><label>Como podemos ajudar?</label><textarea rows="4" placeholder="Conte brevemente o que aconteceu"></textarea></div>
+      <a href="#" class="btn btn-gold">Enviar e falar com o escritório <span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#top" class="brand"><b>Godoy Marquesini</b><small>Advocacia</small></a>
+        <p class="about">Advocacia dedicada ao trabalhador, em Bauru/SP e em todo o Brasil por atendimento online.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.6-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.5-.5zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#areas">Áreas de atuação</a></li>
+          <li><a href="#sobre">O escritório</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#artigos">Artigos</a></li>
+          <li><a href="#faq">Dúvidas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li>(14) 99778-9631</li>
+          <li>Bauru/SP · e todo o Brasil</li>
+          <li>Seg a sex · 9h às 18h</li>
+        </ul>
+      </div>
+    </div>
+    <p class="oab">Este site tem caráter meramente informativo, em conformidade com o Código de Ética e Disciplina da OAB e o Provimento nº 205/2021 do Conselho Federal da OAB. Não constitui oferta de serviços, captação de clientela nem promessa de resultado. As informações aqui não substituem a consulta a um advogado.</p>
+    <div class="foot-bar">
+      <span>© 2026 Godoy Marquesini Advocacia · OAB/SP 155.874</span>
+      <span>Desenvolvido por Propulsão Jurídica</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5514997789631" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.6-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.5-.5zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></a>
+
+<script>
+const hd=document.getElementById('hd');
+addEventListener('scroll',()=>hd.classList.toggle('solid',scrollY>40));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3*70)+'ms';io.observe(el)});
+document.querySelectorAll('.q button').forEach(b=>b.onclick=()=>{
+  const q=b.parentElement,a=q.querySelector('.a'),open=q.classList.contains('open');
+  document.querySelectorAll('.q').forEach(o=>{o.classList.remove('open');o.querySelector('.a').style.maxHeight=null});
+  if(!open){q.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+});
+</script>
+</body>
+</html>

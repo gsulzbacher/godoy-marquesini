@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta — Site Institucional | Godoy Marquesini Advocacia</title>
+<style>
+@font-face{font-family:'Montserrat';src:url('assets/fonts/montserrat-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('assets/fonts/montserrat-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('assets/fonts/montserrat-latin-700-normal.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('assets/fonts/montserrat-latin-800-normal.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'DM Serif Display';src:url('assets/fonts/dm-serif-display-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+
+:root{
+  --blue:#024AD6;--blue-dark:#01296F;
+  --navy:#0E2A47;--navy-deep:#0A2038;--gold:#B08D57;--gold-soft:#C6A876;
+  --ink:#1E2A38;--ink-soft:#5A6b7b;--line:#E5E1D8;--paper:#FBFAF7;--paper-2:#F3F1EB;--white:#fff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);background:var(--paper-2);font-size:15px;line-height:1.62;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.page{max-width:900px;margin:0 auto;background:var(--paper);box-shadow:0 0 60px rgba(0,0,0,.08)}
+.pad{padding:60px 72px}
+h1,h2,h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:-.01em;line-height:1.12}
+h1{font-size:2.5rem}h2{font-size:1.75rem;margin-bottom:10px}h3{font-size:1.05rem}
+p{margin-bottom:14px}
+.muted{color:var(--ink-soft)}
+.kick{font-family:'Montserrat';font-size:.66rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
+.sec{border-top:1px solid var(--line)}
+.sec-lead{color:var(--ink-soft);max-width:62ch;margin-bottom:30px}
+
+/* capa */
+.cover{background:linear-gradient(155deg,var(--navy-deep),var(--navy) 55%,#16385c);color:#fff;padding:58px 72px 62px;position:relative;overflow:hidden}
+.cover::after{content:'GM';position:absolute;right:-10px;bottom:-70px;font-family:'DM Serif Display';font-size:15rem;color:rgba(255,255,255,.05);line-height:1}
+.cover img.logo{width:168px;margin-bottom:52px;position:relative;z-index:2}
+.cover .kick{color:var(--gold-soft)}
+.cover h1{color:#fff;position:relative;z-index:2;max-width:17ch}
+.cover .sub{color:rgba(255,255,255,.8);margin-top:16px;max-width:52ch;position:relative;z-index:2}
+.cover-meta{display:flex;gap:42px;flex-wrap:wrap;margin-top:44px;padding-top:26px;border-top:1px solid rgba(255,255,255,.16);position:relative;z-index:2}
+.cover-meta span{display:block;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.cover-meta b{font-size:.98rem;font-weight:700}
+
+.diag{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px}
+.card{border:1px solid var(--line);border-radius:12px;padding:22px 24px;background:var(--white)}
+.card .n{width:26px;height:26px;border-radius:7px;background:var(--navy);color:var(--gold-soft);display:grid;place-items:center;font-size:.72rem;font-weight:800;margin-bottom:12px}
+.card p{font-size:.85rem;color:var(--ink-soft);margin:0}
+.card h3{color:var(--navy);margin-bottom:6px}
+
+/* preview */
+.preview{background:var(--navy);padding:52px 72px;color:#fff}
+.preview .kick{color:var(--gold-soft)}
+.preview h2{color:#fff}
+.preview p{color:rgba(255,255,255,.72)}
+.shot{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.14);margin-top:24px;box-shadow:0 26px 60px rgba(0,0,0,.4)}
+.preview .btn{margin-top:22px}
+
+.pages{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}
+.pg{border:1px solid var(--line);border-radius:10px;padding:20px 22px;background:var(--white);display:flex;gap:14px;align-items:flex-start}
+.pg .ic{width:34px;height:34px;flex:none;border-radius:8px;background:rgba(176,141,87,.12);color:var(--gold);display:grid;place-items:center;font-family:'DM Serif Display';font-size:1rem}
+.pg h3{color:var(--navy);font-size:.98rem;margin-bottom:3px}
+.pg p{font-size:.8rem;color:var(--ink-soft);margin:0}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+.box{border:1px solid var(--line);border-radius:12px;padding:26px 28px;background:var(--white)}
+.box.yes{border-color:rgba(176,141,87,.4);background:rgba(176,141,87,.05)}
+.box h3{font-family:'Montserrat';font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.box.yes h3{color:var(--gold)}.box.no h3{color:var(--ink-soft)}
+.box ul{list-style:none;display:flex;flex-direction:column;gap:11px;font-size:.85rem}
+.box li{display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.box li i{font-style:normal;flex:none;font-weight:800}
+.box.yes li i{color:var(--gold)}.box.no li{color:var(--ink-soft)}.box.no li i{color:#C4C4C4}
+
+.tl{position:relative;margin-top:26px;padding-left:30px}
+.tl::before{content:'';position:absolute;left:6px;top:6px;bottom:14px;width:2px;background:linear-gradient(var(--gold),rgba(176,141,87,.15))}
+.tl-item{position:relative;padding-bottom:24px}
+.tl-item::before{content:'';position:absolute;left:-30px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.tl-item .when{font-size:.66rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.tl-item h3{color:var(--navy);font-size:1rem;margin-bottom:3px}
+.tl-item p{font-size:.85rem;color:var(--ink-soft);margin:0}
+
+.invest{background:linear-gradient(150deg,var(--navy-deep),var(--navy));color:#fff;border-radius:16px;padding:40px 44px;margin-top:24px;position:relative;overflow:hidden}
+.invest::after{content:'';position:absolute;right:-70px;bottom:-90px;width:260px;height:260px;border:44px solid rgba(176,141,87,.1);border-radius:50%}
+.invest .label{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.invest .price{font-family:'DM Serif Display';font-size:3rem;line-height:1.1;margin:8px 0 4px;position:relative;z-index:2}
+.invest .price small{font-size:1.05rem;opacity:.7;font-family:'Montserrat';font-weight:600}
+.invest .cond{color:rgba(255,255,255,.82);font-size:.88rem;margin:0;position:relative;z-index:2}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;position:relative;z-index:2}
+.pay div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:11px;padding:16px 18px}
+.pay b{display:block;font-size:.92rem}
+.pay span{font-size:.76rem;color:rgba(255,255,255,.65)}
+
+.recur{border:1px solid rgba(176,141,87,.4);border-radius:14px;padding:28px 30px;margin-top:20px;background:rgba(176,141,87,.05)}
+.recur .tagline{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);background:rgba(176,141,87,.14);padding:4px 12px;border-radius:100px;margin-bottom:14px}
+.recur h3{color:var(--navy);margin-bottom:8px}
+.recur .rprice{font-family:'DM Serif Display';font-size:1.9rem;color:var(--navy);margin:6px 0}
+.recur .rprice small{font-size:.9rem;color:var(--ink-soft);font-family:'Montserrat';font-weight:600}
+.recur p{font-size:.86rem;color:var(--ink-soft);margin:0}
+.recur ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:8px;font-size:.85rem}
+.recur li{display:flex;gap:9px}.recur li i{color:var(--gold);font-style:normal;font-weight:800}
+
+.note-box{border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin-top:20px;background:var(--white);font-size:.85rem;color:var(--ink-soft)}
+.note-box b{color:var(--ink)}
+
+.btn{display:inline-flex;align-items:center;gap:11px;background:var(--gold);color:var(--navy-deep);font-weight:700;font-size:.86rem;padding:15px 28px;border-radius:8px;text-decoration:none;transition:.25s}
+.btn:hover{filter:brightness(1.06);transform:translateY(-2px)}
+
+.close{background:var(--navy-deep);color:#fff;padding:56px 72px}
+.close .kick{color:var(--gold-soft)}
+.close h2{color:#fff}
+.close p{color:rgba(255,255,255,.72);max-width:56ch}
+.close .btn{margin-top:22px}
+.valid{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);font-size:.76rem;color:rgba(255,255,255,.5)}
+
+footer{padding:24px 72px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.72rem;color:var(--ink-soft);background:var(--paper);border-top:1px solid var(--line)}
+footer img{width:104px;opacity:.8}
+
+@media(max-width:760px){
+  .pad,.cover,.preview,.close,footer{padding-left:26px;padding-right:26px}
+  .pad{padding-top:44px;padding-bottom:44px}
+  h1{font-size:1.9rem}
+  .diag,.cols,.pages,.pay{grid-template-columns:1fr}
+  .invest{padding:30px 26px}
+}
+@media print{body{background:#fff}.page{box-shadow:none;max-width:none}.sec,.invest,.recur{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- CAPA -->
+  <section class="cover">
+    <img class="logo" src="proposta-assets/logo-branca-propulsao.png" alt="Propulsão Jurídica">
+    <span class="kick">Proposta comercial · Agosto 2026</span>
+    <h1>Site institucional Godoy Marquesini</h1>
+    <p class="sub">Um site multi-página à altura da reputação do escritório — para transmitir autoridade, apresentar a equipe e aparecer no Google com conteúdo próprio.</p>
+    <div class="cover-meta">
+      <div><span>Cliente</span><b>Godoy Marquesini Advocacia</b></div>
+      <div><span>Responsável</span><b>Dra. Viviane Colacino</b></div>
+      <div><span>Agência</span><b>Propulsão Jurídica</b></div>
+      <div><span>Prazo</span><b>~20 dias úteis</b></div>
+    </div>
+  </section>
+
+  <!-- POR QUE -->
+  <section class="pad sec">
+    <span class="kick">Por que agora</span>
+    <h2>O site atual não representa mais o escritório</h2>
+    <p class="sec-lead">O site em WordPress/Elementor pifou e hoje está fora do ar (sob senha). Enquanto isso, o escritório cresceu: reformou, mudou a equipe e ampliou as áreas para Previdenciário e Cível. É a hora certa de trocar por algo sólido, rápido e feito para durar.</p>
+    <div class="diag">
+      <div class="card"><div class="n">1</div><h3>Autoridade que a landing page não dá</h3><p>A LP capta lead, mas não conta a história do escritório nem apresenta a equipe. Quem pesquisa "Godoy Marquesini" antes de fechar precisa achar um site que transmita solidez.</p></div>
+      <div class="card"><div class="n">2</div><h3>Aparecer no Google sem pagar por clique</h3><p>Um site multi-página com blog ranqueia por conta própria. Cada artigo sobre um direito trabalhista vira uma porta de entrada orgânica — cliente que chega sem custo de anúncio.</p></div>
+      <div class="card"><div class="n">3</div><h3>Sair do WordPress que "pifou"</h3><p>A nova stack é feita em tecnologia estática: sem plugin que quebra, sem atualização que derruba o site, sem lentidão. Rápido, seguro e praticamente sem manutenção.</p></div>
+      <div class="card"><div class="n">4</div><h3>A captação continua na LP</h3><p>A landing page atual segue no ar como ferramenta de conversão do tráfego pago. O site novo é o braço institucional — os dois trabalham juntos, cada um no seu papel.</p></div>
+    </div>
+  </section>
+
+  <!-- PREVIEW -->
+  <section class="preview">
+    <span class="kick">Protótipo</span>
+    <h2>Já desenhamos como fica</h2>
+    <p>Não é mockup genérico: é a home real, no estilo sóbrio e institucional das referências que você enviou — navy, tipografia serifada e um dourado discreto que transmite seriedade sem parecer datado.</p>
+    <div class="shot"><img src="screens/full.jpg" alt="Protótipo do site Godoy Marquesini"></div>
+    <a class="btn" href="index.html" target="_blank">Abrir o protótipo navegável →</a>
+  </section>
+
+  <!-- ESCOPO / PÁGINAS -->
+  <section class="pad sec">
+    <span class="kick">Escopo</span>
+    <h2>Um site multi-página completo</h2>
+    <p class="sec-lead">Diferente de uma página só, cada seção ganha profundidade e endereço próprio — melhor para o cliente navegar e melhor para o Google indexar.</p>
+    <div class="pages">
+      <div class="pg"><span class="ic">01</span><div><h3>Início</h3><p>Apresentação do escritório, áreas, prova social e chamadas para contato.</p></div></div>
+      <div class="pg"><span class="ic">02</span><div><h3>O Escritório</h3><p>História, valores e a responsável técnica — a construção da confiança.</p></div></div>
+      <div class="pg"><span class="ic">03</span><div><h3>Áreas de Atuação</h3><p>Trabalhista, Previdenciário e Cível, cada uma explicada em sua página.</p></div></div>
+      <div class="pg"><span class="ic">04</span><div><h3>Equipe</h3><p>Advogados e advogadas com função e número de OAB.</p></div></div>
+      <div class="pg"><span class="ic">05</span><div><h3>Artigos (Blog)</h3><p>Listagem, categorias e página de leitura otimizada para busca.</p></div></div>
+      <div class="pg"><span class="ic">06</span><div><h3>Contato</h3><p>Formulário, WhatsApp, atendimento online e agendamento.</p></div></div>
+    </div>
+  </section>
+
+  <!-- INCLUI / NÃO INCLUI -->
+  <section class="pad sec">
+    <span class="kick">Condições</span>
+    <h2>O que está e o que não está incluso</h2>
+    <div class="cols">
+      <div class="box yes">
+        <h3>Incluso no site</h3>
+        <ul>
+          <li><i>✓</i> Design e desenvolvimento das 6 páginas</li>
+          <li><i>✓</i> Versão desktop, tablet e celular</li>
+          <li><i>✓</i> Redação/revisão de todos os textos institucionais</li>
+          <li><i>✓</i> Estrutura de blog pronta para receber artigos</li>
+          <li><i>✓</i> SEO local (Bauru + termos trabalhistas) e schema jurídico</li>
+          <li><i>✓</i> Seção de depoimentos com as avaliações do Google</li>
+          <li><i>✓</i> Formulário + WhatsApp + botão de agendamento</li>
+          <li><i>✓</i> Site rápido e seguro (tecnologia estática, sem WordPress)</li>
+          <li><i>✓</i> Publicação, domínio e desligamento do site antigo</li>
+          <li><i>✓</i> Revisão de conformidade com o Provimento 205/2021 da OAB</li>
+          <li><i>✓</i> Duas rodadas de ajuste + 30 dias de suporte</li>
+        </ul>
+      </div>
+      <div class="box no">
+        <h3>Não incluso</h3>
+        <ul>
+          <li><i>—</i> Hospedagem e domínio (custo baixo, pago pelo escritório)</li>
+          <li><i>—</i> Ensaio fotográfico do escritório e da equipe</li>
+          <li><i>—</i> Redação recorrente de artigos (ver plano de blog ao lado)</li>
+          <li><i>—</i> Painel de auto-publicação (a Propulsão publica; upgrade futuro)</li>
+          <li><i>—</i> Gestão de tráfego pago (contrato à parte, já em andamento)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note-box">
+      <b>Sobre as fotos:</b> podemos publicar o site com as fotos atuais (ou versões provisórias) e trocar pelo ensaio novo assim que estiver pronto, sem custo adicional — o site não fica esperando o fotógrafo.
+    </div>
+  </section>
+
+  <!-- PRAZO -->
+  <section class="pad sec">
+    <span class="kick">Prazo</span>
+    <h2>Cerca de 20 dias úteis</h2>
+    <div class="tl">
+      <div class="tl-item"><div class="when">Dias 1–3 · Briefing</div><h3>Coleta de material</h3><p>Logo, OABs, fotos disponíveis, textos a revisar e definição do domínio.</p></div>
+      <div class="tl-item"><div class="when">Dias 4–10 · Produção</div><h3>Páginas e textos</h3><p>Construção das 6 páginas, redação institucional e adaptação para celular.</p></div>
+      <div class="tl-item"><div class="when">Dias 11–13 · Blog</div><h3>Estrutura de artigos</h3><p>Montagem do blog e dos primeiros artigos, prontos para você revisar.</p></div>
+      <div class="tl-item"><div class="when">Dia 14 · Revisão</div><h3>Aprovação</h3><p>Você navega na versão real e devolve os ajustes de uma vez.</p></div>
+      <div class="tl-item"><div class="when">Dias 15–19 · Ajustes</div><h3>Correções e SEO</h3><p>Aplicação dos ajustes, otimização, testes e conformidade OAB.</p></div>
+      <div class="tl-item"><div class="when">Dia 20 · Publicação</div><h3>No ar</h3><p>Domínio apontado, site publicado e WordPress antigo desligado.</p></div>
+    </div>
+  </section>
+
+  <!-- INVESTIMENTO -->
+  <section class="pad sec">
+    <span class="kick">Investimento</span>
+    <h2>Valor do projeto</h2>
+    <p class="sec-lead">Pagamento único pelo site. Sem mensalidade obrigatória de plataforma — o site é do escritório e a hospedagem custa quase nada.</p>
+
+    <div class="invest">
+      <span class="label">Site institucional multi-página · 6 páginas + blog</span>
+      <div class="price">R$ 2.500<small>,00</small></div>
+      <p class="cond">Projeto fechado, com escopo, prazo e entregáveis definidos nesta proposta.</p>
+      <div class="pay">
+        <div><b>50% + 50%</b><span>Metade no aceite, metade na publicação</span></div>
+        <div><b>Até 3x sem juros</b><span>No cartão de crédito</span></div>
+      </div>
+    </div>
+
+    <div class="recur">
+      <span class="tagline">Opcional · recomendado</span>
+      <h3>Blog gerenciado pela Propulsão</h3>
+      <div class="rprice">R$ 297<small> /mês</small></div>
+      <p>O que faz o site aparecer no Google é conteúdo constante — e escrever artigo jurídico toma tempo que o escritório não tem. Neste plano, a gente cuida de tudo:</p>
+      <ul>
+        <li><i>✓</i> 4 artigos por mês (1 por semana), escritos e otimizados para busca</li>
+        <li><i>✓</i> Publicados por nós, com imagem e categoria — você só revisa se quiser</li>
+        <li><i>✓</i> Temas definidos junto com o escritório, dentro das regras da OAB</li>
+        <li><i>✓</i> Sem fidelidade — cancela quando quiser</li>
+      </ul>
+      <p style="margin-top:14px"><b>Pode começar depois:</b> o site já vai ao ar com os primeiros artigos; o plano mensal entra quando você quiser manter o ritmo.</p>
+    </div>
+
+    <div class="note-box">
+      <b>Custos que ficam com o escritório:</b> registro do domínio (~R$ 40/ano) e hospedagem (~R$ 0–25/mês, dependendo do plano). Contratados em nome de vocês; a Propulsão orienta e configura sem cobrar por isso.
+    </div>
+  </section>
+
+  <!-- ACEITE -->
+  <section class="close">
+    <span class="kick">Próximo passo</span>
+    <h2>Aceita e a gente começa</h2>
+    <p>É só confirmar no WhatsApp. Já mando a listinha do que preciso do escritório (logo, OABs, fotos) e o cronograma começa a contar no dia útil seguinte.</p>
+    <a class="btn" href="https://wa.me/5514997789631">Confirmar e começar →</a>
+    <p class="valid">Proposta válida por 15 dias a partir de 05/08/2026. Valores e prazos sujeitos a revisão após esse período.</p>
+  </section>
+
+  <footer>
+    <img src="proposta-assets/logo-azul-cinza-propulsao.png" alt="Propulsão Jurídica">
+    <span>Propulsão Jurídica · Gabriel Sulzbacher · propulsaojuridica.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
