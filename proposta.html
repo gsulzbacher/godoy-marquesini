@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Proposta — Site Institucional | Godoy Marquesini Advocacia</title>
 <style>
@@ -14,8 +13,8 @@
 
 :root{
   --blue:#024AD6;--blue-dark:#01296F;
-  --navy:#0E2A47;--navy-deep:#0A2038;--gold:#B08D57;--gold-soft:#C6A876;
-  --ink:#1E2A38;--ink-soft:#5A6b7b;--line:#E5E1D8;--paper:#FBFAF7;--paper-2:#F3F1EB;--white:#fff;
+  --navy:#07012b;--navy-deep:#04001a;--gold:#676e6d;--gold-soft:#C4C9CB;
+  --ink:#111412;--ink-soft:#4C5153;--line:#E3E5E4;--paper:#fcfffd;--paper-2:#eaebeb;--white:#fff;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);background:var(--paper-2);font-size:15px;line-height:1.62;-webkit-font-smoothing:antialiased}
@@ -31,7 +30,7 @@ p{margin-bottom:14px}
 .sec-lead{color:var(--ink-soft);max-width:62ch;margin-bottom:30px}
 
 /* capa */
-.cover{background:linear-gradient(155deg,var(--navy-deep),var(--navy) 55%,#16385c);color:#fff;padding:58px 72px 62px;position:relative;overflow:hidden}
+.cover{background:linear-gradient(155deg,var(--navy-deep),var(--navy) 55%,#171049);color:#fff;padding:58px 72px 62px;position:relative;overflow:hidden}
 .cover::after{content:'GM';position:absolute;right:-10px;bottom:-70px;font-family:'DM Serif Display';font-size:15rem;color:rgba(255,255,255,.05);line-height:1}
 .cover img.logo{width:168px;margin-bottom:52px;position:relative;z-index:2}
 .cover .kick{color:var(--gold-soft)}
@@ -57,13 +56,13 @@ p{margin-bottom:14px}
 
 .pages{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}
 .pg{border:1px solid var(--line);border-radius:10px;padding:20px 22px;background:var(--white);display:flex;gap:14px;align-items:flex-start}
-.pg .ic{width:34px;height:34px;flex:none;border-radius:8px;background:rgba(176,141,87,.12);color:var(--gold);display:grid;place-items:center;font-family:'DM Serif Display';font-size:1rem}
+.pg .ic{width:34px;height:34px;flex:none;border-radius:8px;background:rgba(103,110,109,.12);color:var(--gold);display:grid;place-items:center;font-family:'DM Serif Display';font-size:1rem}
 .pg h3{color:var(--navy);font-size:.98rem;margin-bottom:3px}
 .pg p{font-size:.8rem;color:var(--ink-soft);margin:0}
 
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
 .box{border:1px solid var(--line);border-radius:12px;padding:26px 28px;background:var(--white)}
-.box.yes{border-color:rgba(176,141,87,.4);background:rgba(176,141,87,.05)}
+.box.yes{border-color:rgba(103,110,109,.4);background:rgba(103,110,109,.05)}
 .box h3{font-family:'Montserrat';font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
 .box.yes h3{color:var(--gold)}.box.no h3{color:var(--ink-soft)}
 .box ul{list-style:none;display:flex;flex-direction:column;gap:11px;font-size:.85rem}
@@ -72,7 +71,7 @@ p{margin-bottom:14px}
 .box.yes li i{color:var(--gold)}.box.no li{color:var(--ink-soft)}.box.no li i{color:#C4C4C4}
 
 .tl{position:relative;margin-top:26px;padding-left:30px}
-.tl::before{content:'';position:absolute;left:6px;top:6px;bottom:14px;width:2px;background:linear-gradient(var(--gold),rgba(176,141,87,.15))}
+.tl::before{content:'';position:absolute;left:6px;top:6px;bottom:14px;width:2px;background:linear-gradient(var(--gold),rgba(103,110,109,.15))}
 .tl-item{position:relative;padding-bottom:24px}
 .tl-item::before{content:'';position:absolute;left:-30px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
 .tl-item .when{font-size:.66rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
@@ -80,7 +79,7 @@ p{margin-bottom:14px}
 .tl-item p{font-size:.85rem;color:var(--ink-soft);margin:0}
 
 .invest{background:linear-gradient(150deg,var(--navy-deep),var(--navy));color:#fff;border-radius:16px;padding:40px 44px;margin-top:24px;position:relative;overflow:hidden}
-.invest::after{content:'';position:absolute;right:-70px;bottom:-90px;width:260px;height:260px;border:44px solid rgba(176,141,87,.1);border-radius:50%}
+.invest::after{content:'';position:absolute;right:-70px;bottom:-90px;width:260px;height:260px;border:44px solid rgba(103,110,109,.1);border-radius:50%}
 .invest .label{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65)}
 .invest .price{font-family:'DM Serif Display';font-size:3rem;line-height:1.1;margin:8px 0 4px;position:relative;z-index:2}
 .invest .price small{font-size:1.05rem;opacity:.7;font-family:'Montserrat';font-weight:600}
@@ -90,8 +89,8 @@ p{margin-bottom:14px}
 .pay b{display:block;font-size:.92rem}
 .pay span{font-size:.76rem;color:rgba(255,255,255,.65)}
 
-.recur{border:1px solid rgba(176,141,87,.4);border-radius:14px;padding:28px 30px;margin-top:20px;background:rgba(176,141,87,.05)}
-.recur .tagline{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);background:rgba(176,141,87,.14);padding:4px 12px;border-radius:100px;margin-bottom:14px}
+.recur{border:1px solid rgba(103,110,109,.4);border-radius:14px;padding:28px 30px;margin-top:20px;background:rgba(103,110,109,.05)}
+.recur .tagline{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);background:rgba(103,110,109,.14);padding:4px 12px;border-radius:100px;margin-bottom:14px}
 .recur h3{color:var(--navy);margin-bottom:8px}
 .recur .rprice{font-family:'DM Serif Display';font-size:1.9rem;color:var(--navy);margin:6px 0}
 .recur .rprice small{font-size:.9rem;color:var(--ink-soft);font-family:'Montserrat';font-weight:600}
@@ -102,7 +101,7 @@ p{margin-bottom:14px}
 .note-box{border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin-top:20px;background:var(--white);font-size:.85rem;color:var(--ink-soft)}
 .note-box b{color:var(--ink)}
 
-.btn{display:inline-flex;align-items:center;gap:11px;background:var(--gold);color:var(--navy-deep);font-weight:700;font-size:.86rem;padding:15px 28px;border-radius:8px;text-decoration:none;transition:.25s}
+.btn{display:inline-flex;align-items:center;gap:11px;background:var(--gold);color:#fff;font-weight:700;font-size:.86rem;padding:15px 28px;border-radius:8px;text-decoration:none;transition:.25s}
 .btn:hover{filter:brightness(1.06);transform:translateY(-2px)}
 
 .close{background:var(--navy-deep);color:#fff;padding:56px 72px}
@@ -160,7 +159,7 @@ footer img{width:104px;opacity:.8}
     <span class="kick">Protótipo</span>
     <h2>Já desenhamos como fica</h2>
     <p>Não é mockup genérico: é a home real, no estilo sóbrio e institucional das referências que você enviou — navy, tipografia serifada e um dourado discreto que transmite seriedade sem parecer datado.</p>
-    <div class="shot"><img src="screens/full.jpg" alt="Protótipo do site Godoy Marquesini"></div>
+    <div class="shot"><img src="screens/full.png" alt="Protótipo do site Godoy Marquesini"></div>
     <a class="btn" href="index.html" target="_blank">Abrir o protótipo navegável →</a>
   </section>
 
