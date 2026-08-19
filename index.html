@@ -87,6 +87,9 @@ header.solid{background:rgba(251,250,247,.97);border-bottom-color:var(--line)}
 /* hero */
 .hero{position:relative;background:var(--navy);color:var(--white);padding:150px 0 110px;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(1100px 520px at 78% 12%,rgba(150,158,162,.16),transparent 60%),linear-gradient(180deg,var(--navy-deep),var(--navy) 45%,var(--navy-2))}
+.hero.has-photo{background:var(--navy) url('fotos/hero-bg.jpg') right 26%/cover no-repeat}
+.hero.has-photo::before{background:linear-gradient(100deg,rgba(7,1,43,.95) 0%,rgba(7,1,43,.85) 36%,rgba(7,1,43,.56) 64%,rgba(7,1,43,.24) 100%)}
+.hero.has-photo .hero-col,.hero.has-photo .hero-mono{display:none}
 .hero-col{position:absolute;top:0;right:0;bottom:0;width:44%;z-index:1;opacity:.5;
   background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 2px,transparent 2px 64px);
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 55%);mask-image:linear-gradient(90deg,transparent,#000 55%)}
@@ -283,7 +286,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);padding:60px 0 0;b
 </header>
 
 <!-- HERO -->
-<section class="hero" id="top">
+<section class="hero has-photo" id="top">
   <div class="hero-col"></div>
   <span class="hero-mono">GM</span>
   <div class="wrap">
