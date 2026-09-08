@@ -554,46 +554,22 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);padding:60px 0 0;b
 }
 
 /* ============================================================
-   TEXTURA DE FUNDO
-   Trama hexagonal em SVG embutido (sem requisição extra, escala sem perder
-   nitidez) + um degradê radial suave por faixa, para os fundos não lerem
-   como cor chapada. Opacidades baixas de propósito: é escritório de
-   advocacia, a textura tem que se notar de perto e sumir de longe.
+   PROFUNDIDADE DE FUNDO
+   Sem padrão nem trama: a página inteira coberta por um desenho repetido
+   lê como papel de parede, não como profundidade. Aqui a profundidade vem
+   só de LUZ — uma queda suave de claridade dentro de cada faixa, que dá a
+   impressão de superfície iluminada em vez de bloco de cor chapada.
    ============================================================ */
-:root{
-  --trama-clara:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cpath fill='%23676e6d' fill-opacity='0.03' d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81V33.5zM15 0v7.5L27.99 15H28v-2.31l-11-6.34V0h-2zm0 49v-8l12.99-7.5H28v2.31l-11 6.34V49h-2z'/%3E%3C/svg%3E");
-  --trama-escura:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cpath fill='%23ffffff' fill-opacity='0.022' d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81V33.5zM15 0v7.5L27.99 15H28v-2.31l-11-6.34V0h-2zm0 49v-8l12.99-7.5H28v2.31l-11 6.34V49h-2z'/%3E%3C/svg%3E");
-  --trama-tam:64px 112px;
-}
 
-/* fundo claro padrão (seções sem .alt) */
-body{
-  background-color:var(--paper);
-  background-image:var(--trama-clara);
-  background-size:var(--trama-tam);
-}
-
-/* faixas claras alternadas: trama + clareado no topo, que dá volume */
+/* faixas claras alternadas: clareia no topo e assenta na cor embaixo */
 .alt{
   background-color:var(--paper-2);
-  background-image:var(--trama-clara),
-    radial-gradient(1200px 460px at 50% 0%,rgba(255,255,255,.85),rgba(255,255,255,0) 68%);
-  background-size:var(--trama-tam),auto;
+  background-image:linear-gradient(180deg,rgba(255,255,255,.85) 0%,rgba(255,255,255,0) 62%);
 }
 
-/* faixas escuras: trama clara + brilho deslocado, para não achatar o navy */
+/* faixas escuras: brilho deslocado, para o navy não virar um bloco morto */
 .reviews,.contato,.cta-final{
-  background-image:var(--trama-escura),
-    radial-gradient(900px 420px at 78% 8%,rgba(150,158,162,.16),rgba(150,158,162,0) 62%);
-  background-size:var(--trama-tam),auto;
+  background-image:
+    radial-gradient(1000px 480px at 76% 6%,rgba(150,158,162,.15),rgba(150,158,162,0) 64%),
+    linear-gradient(180deg,rgba(255,255,255,.045) 0%,rgba(255,255,255,0) 45%);
 }
-.page-hero::before{
-  background:
-    var(--trama-escura),
-    radial-gradient(900px 460px at 82% 0%,rgba(150,158,162,.16),transparent 62%),
-    linear-gradient(180deg,var(--navy-deep),var(--navy) 60%);
-  background-size:var(--trama-tam),auto,auto;
-}
-
-/* cards continuam lisos: a textura é do fundo, não do conteúdo */
-.pillar,.member,.post,.valor,.q,.busca-campo{background-image:none}
