@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import { equipe } from '../data/equipe.js';
+---
+<Base
+  title="Equipe | Godoy Marquesini Advocacia"
+  description="Conheça os advogados do Godoy Marquesini Advocacia, escritório de Bauru/SP com atuação em Direito do Trabalho, Previdenciário e Cível."
+>
+  <PageHero kicker="Equipe" titulo="Quem vai cuidar do seu caso"
+    lead="Advogados e advogadas dedicados, cada um com a sua área de atuação." />
+
+  <section>
+    <div class="wrap">
+      <div class="team">
+        {equipe.map((p) => (
+          <article class="member rv">
+            <div class="av">
+              <img src={p.foto} alt={p.nome} width="800" height="605" loading="lazy" decoding="async" style={`object-position:${p.pos}`} />
+            </div>
+            <div class="body">
+              <h2>{p.nome}</h2>
+              <p class="role">{p.papel}{p.oab ? ` · ${p.oab}` : ''}</p>
+              <p>{p.bio ?? p.area}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p class="prosa rv" style="max-width:62ch;margin:54px auto 0;text-align:center">
+        Cada caso é conduzido por um advogado responsável, que acompanha o processo do início ao fim. Você sabe com quem está falando e não precisa recontar a sua história a cada contato.
+      </p>
+    </div>
+  </section>
+
+  <CtaFinal titulo="Quer falar com um deles?" texto="Conte a sua situação e direcionamos para o advogado da área." />
+</Base>

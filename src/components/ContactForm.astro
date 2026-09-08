@@ -1,0 +1,62 @@
+---
+import { site } from '../data/site.js';
+---
+<form class="form rv" id="ct-form" novalidate data-zap={site.whatsapp}>
+  <h3>Solicite um atendimento</h3>
+  <div class="field">
+    <label for="f-nome">Nome</label>
+    <input id="f-nome" name="nome" type="text" autocomplete="name" required placeholder="Seu nome completo…" />
+  </div>
+  <div class="field">
+    <label for="f-zap">WhatsApp</label>
+    <input id="f-zap" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" spellcheck="false" required placeholder="(14) 99999-0000…" />
+  </div>
+  <div class="field">
+    <label for="f-mail">E-mail</label>
+    <input id="f-mail" name="email" type="email" inputmode="email" autocomplete="email" spellcheck="false" placeholder="voce@email.com…" />
+  </div>
+  <div class="field">
+    <label for="f-assunto">Assunto</label>
+    <select id="f-assunto" name="assunto">
+      <option value="Trabalhista">Trabalhista</option>
+      <option value="Previdenciário">Previdenciário</option>
+      <option value="Cível">Cível</option>
+      <option value="Outro">Outro</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="f-msg">Conte o que aconteceu</label>
+    <textarea id="f-msg" name="mensagem" rows="4" required placeholder="Quanto mais detalhes, melhor conseguimos orientar…"></textarea>
+  </div>
+  <p class="form-status" id="f-status" role="status" aria-live="polite"></p>
+  <button type="submit" class="btn">Enviar e falar com o escritório <span class="arw" aria-hidden="true">→</span></button>
+  <p class="form-lgpd">Ao enviar, você concorda que o escritório use os dados informados apenas para responder ao seu contato. Não compartilhamos suas informações com terceiros.</p>
+</form>
+
+<script>
+  const form = document.getElementById('ct-form');
+  if (form) {
+    const status = document.getElementById('f-status');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const campos = [...form.querySelectorAll('input,textarea')];
+      campos.forEach((c) => c.classList.add('touched'));
+      const invalido = campos.find((c) => !c.checkValidity());
+      if (invalido) {
+        status.dataset.erro = 'true';
+        const rotulo = form.querySelector(`label[for="${invalido.id}"]`)?.textContent.toLowerCase() ?? 'o campo';
+        status.textContent = `Preencha ${rotulo} para continuar.`;
+        invalido.focus();
+        return;
+      }
+      status.dataset.erro = 'false';
+      status.textContent = 'Abrindo o WhatsApp com a sua mensagem…';
+      const d = Object.fromEntries(new FormData(form));
+      const texto =
+        `Olá! Meu nome é ${d.nome}.\n\nAssunto: ${d.assunto}\n\n${d.mensagem}` +
+        (d.email ? `\n\nE-mail: ${d.email}` : '') +
+        `\nWhatsApp: ${d.whatsapp}`;
+      window.open(`https://wa.me/${form.dataset.zap}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
+    });
+  }
+</script>

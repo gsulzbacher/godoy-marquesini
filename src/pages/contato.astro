@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { site, zap } from '../data/site.js';
+---
+<Base
+  title="Contato | Godoy Marquesini Advocacia em Bauru/SP"
+  description={`Fale com o Godoy Marquesini Advocacia pelo WhatsApp ${site.whatsappVisivel}, por e-mail ou pelo formulário. Atendimento presencial em Bauru e online para todo o Brasil.`}
+>
+  <PageHero kicker="Contato" titulo="Vamos conversar sobre o seu caso"
+    lead="Conte a sua situação pelo WhatsApp ou pelo formulário. Retornamos com a orientação e os próximos passos." />
+
+  <section class="contato">
+    <div class="wrap ct-grid">
+      <div class="rv">
+        <h2>Canais de atendimento</h2>
+        <ul class="ct-list">
+          <li>
+            <span class="ic"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.6-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.5-.5z"/></svg></span>
+            <div><b>WhatsApp</b><span><a href={zap()} target="_blank" rel="noopener">{site.whatsappVisivel}</a> · o caminho mais rápido, {site.horario.toLowerCase()}</span></div>
+          </li>
+          {site.email && (
+            <li>
+              <span class="ic"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></span>
+              <div><b>E-mail</b><span><a href={`mailto:${site.email}`}>{site.email}</a></span></div>
+            </li>
+          )}
+          <li>
+            <span class="ic"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b>Escritório</b><span>{site.endereco ?? `Atendimento presencial com hora marcada, em ${site.cidade}`}</span></div>
+          </li>
+          <li>
+            <span class="ic"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 10l4.5-2.5v9L15 14M3 6h12v12H3z"/></svg></span>
+            <div><b>Atendimento a distância</b><span>Videochamada e WhatsApp para clientes de qualquer lugar do Brasil</span></div>
+          </li>
+        </ul>
+      </div>
+      <ContactForm />
+    </div>
+  </section>
+</Base>

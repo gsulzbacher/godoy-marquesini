@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import { zap, u } from '../data/site.js';
+---
+<Base title="Página não encontrada | Godoy Marquesini Advocacia" description="O endereço que você acessou não existe mais ou foi digitado errado.">
+  <section class="page-hero erro-404">
+    <div class="wrap">
+      <span class="kicker">Erro 404</span>
+      <h1>Esta página não existe</h1>
+      <p class="lead">O endereço que você acessou não está mais aqui ou foi digitado errado. Você pode voltar ao início ou falar direto com o escritório.</p>
+      <div class="hero-cta">
+        <a href={u("/")} class="btn btn-ghost">Voltar ao início</a>
+        <a href={zap()} target="_blank" rel="noopener" class="btn">Falar no WhatsApp <span class="arw" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,18 @@
+---
+import { faq } from '../data/conteudo.js';
+const { itens = faq } = Astro.props;
+---
+<div class="faq">
+  {itens.map(([q, a], i) => (
+    <div class="q rv">
+      <h3>
+        <button type="button" id={`qb${i}`} aria-expanded="false" aria-controls={`qa${i}`}>
+          {q} <i aria-hidden="true">+</i>
+        </button>
+      </h3>
+      <div class="a" id={`qa${i}`} role="region" aria-labelledby={`qb${i}`} hidden>
+        <p>{a}</p>
+      </div>
+    </div>
+  ))}
+</div>

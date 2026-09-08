@@ -1,0 +1,16 @@
+---
+import { zap, u } from '../data/site.js';
+const { titulo = 'Vamos conversar sobre o seu caso', texto = 'Conte a sua situação pelo WhatsApp ou pelo formulário. Retornamos com a orientação e os próximos passos.' } = Astro.props;
+---
+<section class="cta-final">
+  <div class="wrap">
+    <div class="rv">
+      <h2>{titulo}</h2>
+      <p class="lead">{texto}</p>
+      <div class="hero-cta">
+        <a href={zap()} target="_blank" rel="noopener" class="btn">Falar no WhatsApp <span class="arw" aria-hidden="true">→</span></a>
+        <a href={u("/contato")} class="btn btn-ghost">Ir para o contato</a>
+      </div>
+    </div>
+  </div>
+</section>

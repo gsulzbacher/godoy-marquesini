@@ -1,0 +1,20 @@
+---
+// Divisor de dobra: depressão rasa e larga no fim da hero, com o chevron dentro.
+// Medido na referência: ombros = 59% da largura, bacia = 41%, prof/larg = 0,25.
+// Ombro r=95.88 (sweep longo e suave), bacia r=66.62 (fundo curto e fechado, 106°).
+// Os ombros têm o centro de curvatura ABAIXO da linha, então a borda desce
+// direto do plano, sem subir antes — é o que dá o escoamento suave.
+//
+// O desenho é pintado com a COR DA SEÇÃO SEGUINTE e sobreposto à base da hero.
+// Assim a depressão continua mostrando a foto e o degradê da hero, sem emenda.
+const { href = '#areas', rotulo = 'Ir para a próxima seção' } = Astro.props;
+const d = 'M0,24 H20 A95.88,95.88 0 0 1 96.7,62.35 A66.62,66.62 0 0 0 203.3,62.35 A95.88,95.88 0 0 1 280,24 H300 V96 H0 Z';
+---
+<div class="fold" aria-hidden="true">
+  <span class="fold-bar"></span>
+  <svg class="fold-notch" viewBox="0 0 300 96" focusable="false" preserveAspectRatio="xMidYMax meet"><path d={d} /></svg>
+  <span class="fold-bar"></span>
+</div>
+<a class="fold-cta" href={href} aria-label={rotulo}>
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+</a>

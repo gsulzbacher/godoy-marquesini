@@ -1,0 +1,145 @@
+---
+import PostCard from './PostCard.astro';
+import Paginacao from './Paginacao.astro';
+import { u } from '../data/site.js';
+
+// `daPagina` = os artigos desta página (renderizados no servidor).
+// `indice`   = todos os artigos, para a busca no cliente.
+const { daPagina, indice, pagina, total } = Astro.props;
+const fmt = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+const baseBlog = u('/blog');
+const dados = indice.map((p) => ({
+  slug: p.id,
+  titulo: p.data.titulo,
+  resumo: p.data.resumo,
+  categoria: p.data.categoria,
+  leitura: p.data.leitura,
+  data: fmt.format(p.data.data),
+  iso: p.data.data.toISOString(),
+}));
+---
+<section>
+  <div class="wrap">
+    <form class="busca" role="search" id="busca-blog" novalidate>
+      <label for="q">Buscar nos artigos</label>
+      <div class="busca-campo">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="q" name="q" type="search" autocomplete="off" spellcheck="false"
+               placeholder="Ex.: gestante, FGTS, INSS…" aria-describedby="busca-contagem" />
+        <button type="button" class="busca-limpar" hidden aria-label="Limpar busca">✕</button>
+      </div>
+      <p class="busca-contagem" id="busca-contagem" role="status" aria-live="polite"></p>
+    </form>
+
+    <div id="resultados" class="posts" hidden></div>
+    <p id="vazio" class="prosa" hidden>
+      Nenhum artigo encontrado. Tente outra palavra ou fale com o escritório pelo WhatsApp.
+    </p>
+
+    <div id="lista-servidor">
+      <div class="posts">
+        {daPagina.map((p) => <PostCard post={p} />)}
+      </div>
+      <Paginacao pagina={pagina} total={total} />
+    </div>
+  </div>
+</section>
+
+<script type="application/json" id="indice-artigos" set:html={JSON.stringify({ base: baseBlog, artigos: dados })}></script>
+
+<script>
+  const form = document.getElementById('busca-blog');
+  if (form) {
+    const campo = document.getElementById('q');
+    const limpar = form.querySelector('.busca-limpar');
+    const contagem = document.getElementById('busca-contagem');
+    const resultados = document.getElementById('resultados');
+    const vazio = document.getElementById('vazio');
+    const listaServidor = document.getElementById('lista-servidor');
+    const { base: baseBlog, artigos } = JSON.parse(document.getElementById('indice-artigos').textContent);
+
+    // sem acento e sem caixa: "gravida" acha "grávida"
+    const normalizar = (t) =>
+      t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+
+    const alvo = artigos.map((a) => ({
+      ...a,
+      busca: normalizar(`${a.titulo} ${a.resumo} ${a.categoria}`),
+    }));
+
+    const cartao = (a) => `
+      <article class="post">
+        <a class="post-link" href="${baseBlog}/${a.slug}">
+          <div class="thumb">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4zM8 9h8M8 13h8M8 17h5"/></svg>
+          </div>
+          <div class="body">
+            <p class="cat">${a.categoria}</p>
+            <h3>${a.titulo}</h3>
+            <p>${a.resumo}</p>
+            <p class="meta"><time datetime="${a.iso}">${a.data}</time> · ${a.leitura} min</p>
+            <span class="read">Ler o artigo</span>
+          </div>
+        </a>
+      </article>`;
+
+    function buscar(termo, atualizarUrl = true) {
+      const t = normalizar(termo);
+      limpar.hidden = t === '';
+
+      if (t === '') {
+        listaServidor.hidden = false;
+        resultados.hidden = true;
+        vazio.hidden = true;
+        resultados.innerHTML = '';
+        contagem.textContent = '';
+      } else {
+        const achados = alvo.filter((a) => a.busca.includes(t));
+        listaServidor.hidden = true;
+        resultados.hidden = achados.length === 0;
+        vazio.hidden = achados.length > 0;
+        resultados.innerHTML = achados.map(cartao).join('');
+        contagem.textContent =
+          achados.length === 0
+            ? `Nenhum resultado para “${termo.trim()}”.`
+            : `${achados.length} ${achados.length === 1 ? 'artigo encontrado' : 'artigos encontrados'} para “${termo.trim()}”.`;
+      }
+
+      if (atualizarUrl) {
+        const u = new URL(location.href);
+        if (t) u.searchParams.set('q', termo.trim());
+        else u.searchParams.delete('q');
+        history.replaceState(null, '', u);
+      }
+    }
+
+    let timer;
+    campo.addEventListener('input', () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => buscar(campo.value), 150);
+    });
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      clearTimeout(timer);
+      buscar(campo.value);
+    });
+    limpar.addEventListener('click', () => {
+      campo.value = '';
+      buscar('');
+      campo.focus();
+    });
+    campo.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && campo.value) {
+        campo.value = '';
+        buscar('');
+      }
+    });
+
+    // permite compartilhar/voltar com o termo na URL
+    const inicial = new URL(location.href).searchParams.get('q');
+    if (inicial) {
+      campo.value = inicial;
+      buscar(inicial, false);
+    }
+  }
+</script>

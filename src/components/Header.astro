@@ -1,0 +1,30 @@
+---
+import { menu, site, zap, u } from '../data/site.js';
+const { pathname } = Astro.url;
+const ativo = (href) => pathname === href || (href !== '/' && pathname.startsWith(href));
+---
+<header id="hd">
+  <div class="wrap nav">
+    <a href={u("/")} class="brand" translate="no">
+      <img src={u("/assets/logo-godoy.png")} alt={site.nome} width="879" height="575" fetchpriority="high" />
+    </a>
+    <nav class="menu" aria-label="Navegação principal">
+      {menu.map((m) => (
+        <a href={m.href} aria-current={ativo(m.href) ? 'page' : undefined}>{m.label}</a>
+      ))}
+    </nav>
+    <a href={zap()} target="_blank" rel="noopener" class="btn">Falar no WhatsApp</a>
+    <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">☰</button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" data-open="false">
+  <div class="veil" data-close></div>
+  <nav class="sheet" aria-label="Menu principal">
+    <button class="close" type="button" aria-label="Fechar menu" data-close>✕</button>
+    {menu.map((m) => (
+      <a href={m.href} aria-current={ativo(m.href) ? 'page' : undefined}>{m.label}</a>
+    ))}
+    <a href={zap()} target="_blank" rel="noopener" class="btn">Falar no WhatsApp</a>
+  </nav>
+</div>

@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import ListaArtigos from '../../components/ListaArtigos.astro';
+import CtaFinal from '../../components/CtaFinal.astro';
+import { getCollection } from 'astro:content';
+import { paginar } from '../../data/blog.js';
+
+const posts = (await getCollection('blog', ({ data }) => !data.rascunho))
+  .sort((a, b) => b.data.data - a.data.data);
+const { itens, total, pagina } = paginar(posts, 1);
+---
+<Base
+  title="Artigos | Godoy Marquesini Advocacia"
+  description="Textos em linguagem simples sobre direitos trabalhistas, benefícios do INSS e questões do dia a dia, escritos pelo escritório Godoy Marquesini."
+>
+  <PageHero kicker="Artigos" titulo="Seus direitos, explicados sem juridiquês"
+    lead="Textos curtos sobre trabalho, INSS e situações do dia a dia, escritos para quem não é da área. Se um assunto que você procura não estiver aqui, é só perguntar pelo WhatsApp." />
+
+  <ListaArtigos daPagina={itens} indice={posts} pagina={pagina} total={total} />
+
+  <CtaFinal titulo="Tem uma dúvida que nenhum texto respondeu?" texto="Conte a sua situação. A conversa inicial serve justamente para isso." />
+</Base>

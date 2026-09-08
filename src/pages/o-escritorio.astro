@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHead from '../components/SectionHead.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import { valores } from '../data/conteudo.js';
+import { site, u } from '../data/site.js';
+---
+<Base
+  title="O Escritório | Godoy Marquesini Advocacia em Bauru/SP"
+  description="Conheça o Godoy Marquesini Advocacia: escritório de Bauru especializado em Direito do Trabalho, com atuação em Previdenciário e Cível e atendimento em todo o Brasil."
+>
+  <PageHero kicker="O escritório" titulo="Advocacia feita de perto"
+    lead="Um escritório construído sobre a defesa de quem trabalha, em Bauru e em todo o Brasil." />
+
+  <section>
+    <div class="wrap sobre">
+      <div class="sobre-visual rv">
+        <img src={u("/fotos/equipe/equipe.jpg")} alt="Equipe do Godoy Marquesini Advocacia reunida no escritório" width="1400" height="1059" loading="lazy" decoding="async" />
+        <div class="frame"></div>
+        <div class="cap"><b>Equipe Godoy Marquesini</b>{site.cidade} · Atuação em todo o Brasil</div>
+      </div>
+      <div class="sobre-text rv">
+        <span class="kicker">Nossa história</span>
+        <h2>Nascemos para defender quem trabalha</h2>
+        <p style="margin-top:20px">O Godoy Marquesini Advocacia começou com uma escolha clara: atuar do lado de quem trabalha. Desde então, a rotina do escritório é ouvir histórias de pessoas que passaram por demissão injusta, assédio, acidente, salário atrasado ou um benefício negado, e transformar isso em um caminho jurídico possível.</p>
+        <p>Com o tempo, os pedidos foram além da esfera trabalhista. Clientes que confiaram um processo ao escritório voltavam com dúvidas sobre aposentadoria, sobre um contrato mal resolvido, sobre uma cobrança indevida. Foi assim que as áreas Previdenciária e Cível entraram, com a mesma exigência técnica da área principal.</p>
+        <p>Hoje o escritório atende de Bauru para todo o Brasil, com processos digitais e acompanhamento à distância, sem que isso custe a proximidade do atendimento.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <SectionHead kicker="Como trabalhamos" titulo="Quatro compromissos que valem para todo caso" center />
+      <div class="valores">
+        {valores.map(([t, d]) => (
+          <div class="valor rv"><h3>{t}</h3><p>{d}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="responsavel rv">
+        <div>
+          <span class="kicker">Responsável técnica</span>
+          <h2>Dra. Viviane Colacino de Godoy Marquesini</h2>
+          <p class="lead">{site.oab} · Direito do Trabalho</p>
+          <p>Responde tecnicamente pelo escritório e conduz pessoalmente os casos de maior complexidade na área trabalhista.</p>
+          <a class="btn btn-ghost" href={u("/equipe")}>Conhecer a equipe</a>
+        </div>
+        <img src={u("/fotos/equipe/viviane.jpg")} alt="Dra. Viviane Colacino de Godoy Marquesini" width="800" height="605" loading="lazy" decoding="async" style="object-position:72% 22%" />
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <SectionHead kicker="Estrutura e atendimento" titulo="Presencial em Bauru, online para o Brasil inteiro" />
+      <div class="prosa rv">
+        <p>O escritório fica em Bauru, no interior de São Paulo, e recebe clientes presencialmente com hora marcada.</p>
+        <p>Para quem está em outra cidade ou estado, o atendimento é feito por videochamada e WhatsApp, com o mesmo acompanhamento. A maior parte dos processos trabalhistas e previdenciários tramita de forma eletrônica, o que permite atuar em qualquer região do país.</p>
+      </div>
+    </div>
+  </section>
+
+  <CtaFinal />
+</Base>

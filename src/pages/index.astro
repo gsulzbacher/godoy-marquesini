@@ -1,0 +1,138 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHead from '../components/SectionHead.astro';
+import FoldDivider from '../components/FoldDivider.astro';
+import AreaIcon from '../components/AreaIcon.astro';
+import Depoimentos from '../components/Depoimentos.astro';
+import Faq from '../components/Faq.astro';
+import ContactForm from '../components/ContactForm.astro';
+import PostCard from '../components/PostCard.astro';
+import { areas, temasTrabalhistas } from '../data/areas.js';
+import { passos } from '../data/conteudo.js';
+import { site, zap, u } from '../data/site.js';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.rascunho))
+  .sort((a, b) => b.data.data - a.data.data)
+  .slice(0, 3);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LegalService',
+  name: site.nome,
+  url: 'https://godoymarquesini.com.br',
+  telephone: '+55' + site.whatsapp.slice(2),
+  areaServed: 'BR',
+  address: { '@type': 'PostalAddress', addressLocality: 'Bauru', addressRegion: 'SP', addressCountry: 'BR' },
+  knowsAbout: areas.map((a) => a.nome),
+};
+---
+<Base
+  title="Godoy Marquesini Advocacia | Advogado Trabalhista em Bauru/SP"
+  description="Escritório de advocacia especializado em Direito do Trabalho, com atuação em Previdenciário e Cível. Atendimento em Bauru e online para todo o Brasil."
+  preloadHero
+  schema={schema}
+>
+  <section class="hero has-photo com-dobra" style="--fold-fill:var(--paper-2)">
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="kicker">Advocacia dedicada ao trabalhador</span>
+        <h1>Seus direitos merecem <em>quem os defenda</em> com técnica e cuidado</h1>
+        <p class="lead">Escritório especializado em Direito do Trabalho, com atuação também em Previdenciário e Cível. Atendimento humano e online, em Bauru e em todo o Brasil.</p>
+        <div class="hero-cta">
+          <a href={zap()} target="_blank" rel="noopener" class="btn">Falar no WhatsApp <span class="arw" aria-hidden="true">→</span></a>
+          <a href={u("/areas")} class="btn btn-ghost">Conhecer as áreas</a>
+        </div>
+      </div>
+    </div>
+    <FoldDivider href="#areas" rotulo="Ir para as áreas de atuação" />
+  </section>
+
+  <section id="areas" class="alt">
+    <div class="wrap">
+      <SectionHead kicker="Áreas de atuação" titulo="Onde podemos ajudar você"
+        lead="A defesa de quem trabalha é o centro do escritório. O mesmo cuidado se estende às questões previdenciárias e cíveis que aparecem na vida de qualquer pessoa." center />
+      <div class="pillars">
+        {areas.map((a) => (
+          <article class="pillar rv">
+            <div class="ico"><AreaIcon nome={a.icone} /></div>
+            <h3>{a.nome}</h3>
+            <p>{a.curto}</p>
+            <a class="more" href={u(`/areas/${a.slug}`)}>Ver mais</a>
+          </article>
+        ))}
+      </div>
+      <div class="subareas rv">
+        <p class="lbl">Casos trabalhistas que mais atendemos</p>
+        <div class="chips">{temasTrabalhistas.map((t) => <span class="chip">{t}</span>)}</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="wrap sobre">
+      <div class="sobre-visual rv">
+        <img src={u("/fotos/equipe/equipe.jpg")} alt="Equipe do Godoy Marquesini Advocacia reunida no escritório" width="1400" height="1059" loading="lazy" decoding="async" />
+        <div class="frame"></div>
+        <div class="cap"><b>Equipe Godoy Marquesini</b>{site.cidade} · Atuação em todo o Brasil</div>
+      </div>
+      <div class="sobre-text rv">
+        <span class="kicker">O escritório</span>
+        <h2>Uma advocacia próxima, técnica e humana</h2>
+        <p style="margin-top:20px">O <strong>Godoy Marquesini Advocacia</strong> nasceu para defender quem trabalha. Sob a responsabilidade técnica da <strong>Dra. Viviane Colacino de Godoy Marquesini</strong>, o escritório construiu sua reputação no Direito do Trabalho e hoje leva o mesmo cuidado para as áreas Previdenciária e Cível.</p>
+        <p>Acreditamos que o cliente precisa <strong>entender o próprio caso</strong>. Por isso explicamos cada etapa em linguagem clara, sem juridiquês, e mantemos o acompanhamento próximo do começo ao fim, presencialmente em Bauru ou de forma online, para todo o Brasil.</p>
+        <p>Toda situação começa com uma conversa: você conta o que aconteceu, avaliamos os documentos e explicamos com honestidade os caminhos possíveis, os prazos e os riscos.</p>
+        <div class="sig">
+          <a href={u("/o-escritorio")} class="btn btn-ghost">Conhecer o escritório</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <SectionHead kicker="Como funciona" titulo="Do primeiro contato à solução" center />
+      <div class="steps">
+        {passos.map(([t, d]) => (
+          <div class="step rv"><div class="n"></div><h3>{t}</h3><p>{d}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Depoimentos />
+
+  <section id="artigos" class="alt">
+    <div class="wrap">
+      <SectionHead kicker="Artigos" titulo="Conteúdo que esclarece seus direitos"
+        lead="Textos em linguagem simples sobre trabalho, INSS e situações do dia a dia." center />
+      <div class="posts">{posts.map((p) => <PostCard post={p} />)}</div>
+      <div style="text-align:center;margin-top:40px">
+        <a href={u("/blog")} class="btn btn-ghost">Ver todos os artigos <span class="arw" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <SectionHead kicker="Dúvidas frequentes" titulo="Perguntas que sempre nos fazem" center />
+      <Faq />
+    </div>
+  </section>
+
+  <section id="contato" class="contato">
+    <div class="wrap ct-grid">
+      <div class="rv">
+        <span class="kicker">Contato</span>
+        <h2>Vamos conversar sobre o seu caso</h2>
+        <p class="lead">Conte a sua situação pelo WhatsApp ou pelo formulário. Retornamos com a orientação e os próximos passos.</p>
+        <ul class="ct-list">
+          <li><span class="ic"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.6-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.5-.5z"/></svg></span><div><b>WhatsApp</b><span>{site.whatsappVisivel} · {site.horario}</span></div></li>
+          <li><span class="ic"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div><b>Escritório em {site.cidade}</b><span>Atendimento presencial com hora marcada</span></div></li>
+          <li><span class="ic"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></span><div><b>Atendimento online</b><span>Para clientes de todo o Brasil</span></div></li>
+        </ul>
+      </div>
+      <ContactForm />
+    </div>
+  </section>
+</Base>

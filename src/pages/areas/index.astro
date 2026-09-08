@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import AreaIcon from '../../components/AreaIcon.astro';
+import CtaFinal from '../../components/CtaFinal.astro';
+import { areas, temasTrabalhistas } from '../../data/areas.js';
+import { u } from '../../data/site.js';
+---
+<Base
+  title="Áreas de Atuação | Trabalhista, Previdenciário e Cível | Godoy Marquesini"
+  description="Direito do Trabalho, Previdenciário e Cível. Veja as situações atendidas pelo escritório Godoy Marquesini, em Bauru/SP e em todo o Brasil."
+>
+  <PageHero kicker="Áreas de atuação" titulo="Onde podemos ajudar você"
+    lead="Direito do Trabalho como especialidade principal, com atuação também em Previdenciário e Cível." />
+
+  <section>
+    <div class="wrap">
+      <div class="pillars">
+        {areas.map((a) => (
+          <article class="pillar rv">
+            <div class="ico"><AreaIcon nome={a.icone} /></div>
+            <h2>{a.nome}</h2>
+            <p>{a.curto}</p>
+            <a class="more" href={u(`/areas/${a.slug}`)}>Ver a área</a>
+          </article>
+        ))}
+      </div>
+      <div class="subareas rv">
+        <p class="lbl">Casos trabalhistas que mais atendemos</p>
+        <div class="chips">{temasTrabalhistas.map((t) => <span class="chip">{t}</span>)}</div>
+      </div>
+    </div>
+  </section>
+
+  <CtaFinal titulo="Não achou a sua situação?" texto="Conte o que aconteceu. Se não for a nossa área, indicamos quem possa ajudar." />
+</Base>

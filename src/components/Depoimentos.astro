@@ -1,0 +1,118 @@
+---
+import SectionHead from './SectionHead.astro';
+import { depoimentos } from '../data/conteudo.js';
+---
+<section class="reviews">
+  <div class="wrap">
+    <SectionHead kicker="Depoimentos" titulo="O que dizem nossos clientes" center />
+
+    <div class="carrossel" data-carrossel>
+      <ul class="rev-track" data-track tabindex="0" role="group" aria-label="Depoimentos de clientes">
+        {depoimentos.map((d, i) => (
+          <li class="rev" data-slide aria-label={`Depoimento ${i + 1} de ${depoimentos.length}`}>
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <blockquote><p>{d}</p></blockquote>
+            <div class="who">Cliente Google<span>Avaliação verificada</span></div>
+          </li>
+        ))}
+      </ul>
+
+      <div class="carrossel-ctrl" data-ctrl hidden>
+        <button type="button" class="seta" data-prev aria-label="Depoimentos anteriores">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="pontos" data-pontos role="tablist" aria-label="Escolher página de depoimentos"></div>
+        <button type="button" class="seta" data-next aria-label="Próximos depoimentos">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <p class="sr-only" role="status" aria-live="polite" data-anuncio></p>
+    </div>
+
+    <p class="src">Avaliações reais publicadas por clientes no <b>Google</b>.</p>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-carrossel]').forEach((raiz) => {
+    const track = raiz.querySelector('[data-track]');
+    const ctrl = raiz.querySelector('[data-ctrl]');
+    const pontos = raiz.querySelector('[data-pontos]');
+    const anuncio = raiz.querySelector('[data-anuncio]');
+    const prev = raiz.querySelector('[data-prev]');
+    const next = raiz.querySelector('[data-next]');
+    const slides = [...raiz.querySelectorAll('[data-slide]')];
+    const suave = () => (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
+
+    let paginas = 1;
+
+    // quantos cards cabem por vez, medido no DOM (o CSS é quem manda)
+    const porVez = () => {
+      if (!slides.length) return 1;
+      const larguraCard = slides[0].getBoundingClientRect().width;
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return Math.max(1, Math.round(track.clientWidth / (larguraCard + gap)));
+    };
+
+    const totalPaginas = () => Math.max(1, Math.ceil(slides.length / porVez()));
+
+    const paginaAtual = () =>
+      Math.min(paginas - 1, Math.round(track.scrollLeft / Math.max(track.clientWidth, 1)));
+
+    function montarPontos() {
+      pontos.textContent = '';
+      for (let i = 0; i < paginas; i++) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'ponto';
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', `Página ${i + 1} de ${paginas}`);
+        b.addEventListener('click', () => irPara(i));
+        pontos.append(b);
+      }
+    }
+
+    function sincronizar() {
+      const p = paginaAtual();
+      [...pontos.children].forEach((b, i) => {
+        b.setAttribute('aria-selected', i === p ? 'true' : 'false');
+        b.classList.toggle('on', i === p);
+      });
+      prev.disabled = p === 0;
+      next.disabled = p >= paginas - 1;
+      anuncio.textContent = `Página ${p + 1} de ${paginas}`;
+    }
+
+    function medir() {
+      const novas = totalPaginas();
+      if (novas !== paginas) {
+        paginas = novas;
+        montarPontos();
+      }
+      ctrl.hidden = paginas < 2;
+      sincronizar();
+    }
+
+    // Mira na posição real do primeiro card da página e nunca pede além do fim da pista:
+    // pedir mais que o scroll máximo faz o scroll-snap cancelar o movimento e voltar ao início.
+    function irPara(i) {
+      const pagina = Math.min(Math.max(i, 0), paginas - 1);
+      const alvo = slides[Math.min(pagina * porVez(), slides.length - 1)];
+      const limite = track.scrollWidth - track.clientWidth;
+      const destino = Math.min(alvo.offsetLeft - slides[0].offsetLeft, limite);
+      track.scrollTo({ left: Math.max(destino, 0), behavior: suave() });
+    }
+
+    prev.addEventListener('click', () => irPara(paginaAtual() - 1));
+    next.addEventListener('click', () => irPara(paginaAtual() + 1));
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); next.click(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prev.click(); }
+    });
+
+    let t;
+    track.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(sincronizar, 90); }, { passive: true });
+    addEventListener('resize', () => { clearTimeout(t); t = setTimeout(medir, 150); }, { passive: true });
+    if (slides.length) medir();
+  });
+</script>

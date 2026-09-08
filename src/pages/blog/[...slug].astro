@@ -1,0 +1,72 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection, render } from 'astro:content';
+import { zap } from '../../data/site.js';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.rascunho);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post, todos: posts },
+  }));
+}
+
+const { post, todos } = Astro.props;
+const { Content } = await render(post);
+const d = post.data;
+const dataFmt = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long' }).format(d.data);
+const relacionados = todos
+  .filter((p) => p.id !== post.id && p.data.categoria === d.categoria)
+  .slice(0, 3);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: d.titulo,
+  description: d.resumo,
+  datePublished: d.data.toISOString(),
+  inLanguage: 'pt-BR',
+  author: { '@type': 'Organization', name: 'Godoy Marquesini Advocacia' },
+  publisher: { '@type': 'Organization', name: 'Godoy Marquesini Advocacia' },
+};
+---
+<Base title={d.seoTitle ?? `${d.titulo} | Godoy Marquesini Advocacia`} description={d.seoDescription ?? d.resumo} schema={schema}>
+  <article>
+    <section class="page-hero">
+      <div class="wrap artigo-head">
+        <span class="kicker">{d.categoria}</span>
+        <h1>{d.titulo}</h1>
+        <p class="lead">{d.resumo}</p>
+        <p class="artigo-meta">
+          Por Godoy Marquesini Advocacia · <time datetime={d.data.toISOString()}>{dataFmt}</time> · {d.leitura} min de leitura
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="artigo prosa rv"><Content /></div>
+
+        <p class="artigo-aviso">
+          Este texto tem caráter informativo e não substitui a orientação de um advogado. Cada caso tem particularidades que só uma análise individual consegue avaliar.
+        </p>
+
+        <div class="artigo-cta rv">
+          <h2>Tem uma situação parecida?</h2>
+          <p>Conte o seu caso pelo WhatsApp. Ouvimos a sua história, orientamos quais documentos reunir e explicamos os caminhos possíveis.</p>
+          <a href={zap()} target="_blank" rel="noopener" class="btn">Falar no WhatsApp <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    {relacionados.length > 0 && (
+      <section class="alt">
+        <div class="wrap">
+          <h2 class="rv" style="margin-bottom:32px">Leia também</h2>
+          <div class="posts">{relacionados.map((p) => <PostCard post={p} />)}</div>
+        </div>
+      </section>
+    )}
+  </article>
+</Base>

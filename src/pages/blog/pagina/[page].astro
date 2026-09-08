@@ -1,0 +1,33 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import ListaArtigos from '../../../components/ListaArtigos.astro';
+import CtaFinal from '../../../components/CtaFinal.astro';
+import { getCollection } from 'astro:content';
+import { paginar, POR_PAGINA } from '../../../data/blog.js';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog', ({ data }) => !data.rascunho))
+    .sort((a, b) => b.data.data - a.data.data);
+  const total = Math.max(1, Math.ceil(posts.length / POR_PAGINA));
+  // a página 1 mora em /blog; aqui ficam só as seguintes
+  return Array.from({ length: Math.max(0, total - 1) }, (_, i) => {
+    const n = i + 2;
+    return { params: { page: String(n) }, props: { posts, n } };
+  });
+}
+
+const { posts, n } = Astro.props;
+const { itens, total, pagina } = paginar(posts, n);
+---
+<Base
+  title={`Artigos · página ${pagina} | Godoy Marquesini Advocacia`}
+  description={`Página ${pagina} dos artigos do escritório Godoy Marquesini sobre direitos trabalhistas, INSS e questões do dia a dia.`}
+>
+  <PageHero kicker={`Artigos · página ${pagina} de ${total}`} titulo="Seus direitos, explicados sem juridiquês"
+    lead="Textos curtos sobre trabalho, INSS e situações do dia a dia, escritos para quem não é da área." />
+
+  <ListaArtigos daPagina={itens} indice={posts} pagina={pagina} total={total} />
+
+  <CtaFinal titulo="Tem uma dúvida que nenhum texto respondeu?" texto="Conte a sua situação. A conversa inicial serve justamente para isso." />
+</Base>

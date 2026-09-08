@@ -1,0 +1,33 @@
+---
+import { u } from '../data/site.js';
+const { pagina, total } = Astro.props;
+const base = u('/blog');
+const url = (n) => (n === 1 ? base : `${base}/pagina/${n}`);
+const paginas = Array.from({ length: total }, (_, i) => i + 1);
+// sem href quando não há para onde ir: <a> sem href não é focável nem clicável,
+// que é a semântica certa para um link desabilitado (evita /blog/pagina/0)
+const semAnterior = pagina <= 1;
+const semProxima = pagina >= total;
+---
+{total > 1 && (
+  <nav class="paginacao" aria-label="Paginação dos artigos">
+    <a class="pag-seta" href={semAnterior ? undefined : url(pagina - 1)} rel="prev"
+       aria-disabled={semAnterior ? 'true' : undefined}>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      <span>Anterior</span>
+    </a>
+    <ol class="pag-nums">
+      {paginas.map((n) => (
+        <li>
+          <a href={url(n)} aria-current={n === pagina ? 'page' : undefined}
+             aria-label={`Página ${n} de ${total}`}>{n}</a>
+        </li>
+      ))}
+    </ol>
+    <a class="pag-seta" href={semProxima ? undefined : url(pagina + 1)} rel="next"
+       aria-disabled={semProxima ? 'true' : undefined}>
+      <span>Próxima</span>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+  </nav>
+)}
