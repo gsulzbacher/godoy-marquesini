@@ -11,8 +11,8 @@ import { depoimentos } from '../data/conteudo.js';
         {depoimentos.map((d, i) => (
           <li class="rev" data-slide aria-label={`Depoimento ${i + 1} de ${depoimentos.length}`}>
             <div class="stars" aria-hidden="true">★★★★★</div>
-            <blockquote><p>{d}</p></blockquote>
-            <div class="who">Cliente Google<span>Avaliação verificada</span></div>
+            <blockquote><p>&ldquo;{d.texto}&rdquo;</p></blockquote>
+            <div class="who">{d.autor}<span>Avaliação no Google</span></div>
           </li>
         ))}
       </ul>

@@ -7,7 +7,7 @@ import Depoimentos from '../components/Depoimentos.astro';
 import Faq from '../components/Faq.astro';
 import ContactForm from '../components/ContactForm.astro';
 import PostCard from '../components/PostCard.astro';
-import { areas, temasTrabalhistas } from '../data/areas.js';
+import { areas, temasFrequentes } from '../data/areas.js';
 import { passos } from '../data/conteudo.js';
 import { site, zap, u } from '../data/site.js';
 import { getCollection } from 'astro:content';
@@ -23,22 +23,32 @@ const schema = {
   url: 'https://godoymarquesini.com.br',
   telephone: '+55' + site.whatsapp.slice(2),
   areaServed: 'BR',
-  address: { '@type': 'PostalAddress', addressLocality: 'Bauru', addressRegion: 'SP', addressCountry: 'BR' },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.endereco,
+    addressLocality: 'Bauru',
+    addressRegion: 'SP',
+    postalCode: site.cep,
+    addressCountry: 'BR',
+  },
+  email: site.email,
+  foundingDate: '2016-03-16',
   knowsAbout: areas.map((a) => a.nome),
+  sameAs: site.redes.map((r) => r.url),
 };
 ---
 <Base
-  title="Godoy Marquesini Advocacia | Advogado Trabalhista em Bauru/SP"
-  description="Escritório de advocacia especializado em Direito do Trabalho, com atuação em Previdenciário e Cível. Atendimento em Bauru e online para todo o Brasil."
+  title="Godoy Marquesini Advocacia | Escritório de Advocacia em Bauru/SP"
+  description="Advocacia boutique em Bauru/SP, com mais de 28 anos de experiência em Direito Trabalhista, Civil e Previdenciário. Atendimento a pessoas e empresas em 18 estados."
   preloadHero
   schema={schema}
 >
   <section class="hero has-photo com-dobra" style="--fold-fill:var(--paper-2)">
     <div class="wrap">
       <div class="hero-inner">
-        <span class="kicker">Advocacia dedicada ao trabalhador</span>
-        <h1>Seus direitos merecem <em>quem os defenda</em> com técnica e cuidado</h1>
-        <p class="lead">Escritório especializado em Direito do Trabalho, com atuação também em Previdenciário e Cível. Atendimento humano e online, em Bauru e em todo o Brasil.</p>
+        <span class="kicker">Advocacia boutique · desde 2016</span>
+        <h1>Defender direitos exige conhecimento.<br /><em>Saber como fazê-lo exige experiência.</em></h1>
+        <p class="lead">Mais de 28 anos de advocacia em Direito Trabalhista, Civil e Previdenciário, para pessoas e empresas. Atendimento individualizado, de Bauru para 18 estados e o Distrito Federal.</p>
         <div class="hero-cta">
           <a href={zap()} target="_blank" rel="noopener" class="btn">Falar no WhatsApp <span class="arw" aria-hidden="true">→</span></a>
           <a href={u("/areas")} class="btn btn-ghost">Conhecer as áreas</a>
@@ -51,7 +61,7 @@ const schema = {
   <section id="areas" class="alt">
     <div class="wrap">
       <SectionHead kicker="Áreas de atuação" titulo="Onde podemos ajudar você"
-        lead="A defesa de quem trabalha é o centro do escritório. O mesmo cuidado se estende às questões previdenciárias e cíveis que aparecem na vida de qualquer pessoa." center />
+        lead="Três áreas conduzidas com a mesma exigência técnica, na via preventiva e na contenciosa, para pessoas físicas e jurídicas." center />
       <div class="pillars">
         {areas.map((a) => (
           <article class="pillar rv">
@@ -63,8 +73,8 @@ const schema = {
         ))}
       </div>
       <div class="subareas rv">
-        <p class="lbl">Casos trabalhistas que mais atendemos</p>
-        <div class="chips">{temasTrabalhistas.map((t) => <span class="chip">{t}</span>)}</div>
+        <p class="lbl">Situações que mais atendemos</p>
+        <div class="chips">{temasFrequentes.map((t) => <span class="chip">{t}</span>)}</div>
       </div>
     </div>
   </section>
@@ -78,9 +88,9 @@ const schema = {
       </div>
       <div class="sobre-text rv">
         <span class="kicker">O escritório</span>
-        <h2>Uma advocacia próxima, técnica e humana</h2>
-        <p style="margin-top:20px">O <strong>Godoy Marquesini Advocacia</strong> nasceu para defender quem trabalha. Sob a responsabilidade técnica da <strong>Dra. Viviane Colacino de Godoy Marquesini</strong>, o escritório construiu sua reputação no Direito do Trabalho e hoje leva o mesmo cuidado para as áreas Previdenciária e Cível.</p>
-        <p>Acreditamos que o cliente precisa <strong>entender o próprio caso</strong>. Por isso explicamos cada etapa em linguagem clara, sem juridiquês, e mantemos o acompanhamento próximo do começo ao fim, presencialmente em Bauru ou de forma online, para todo o Brasil.</p>
+        <h2>Uma advocacia boutique, próxima e técnica</h2>
+        <p style="margin-top:20px">A <strong>Godoy Marquesini Advocacia</strong> foi criada em 2016 pela <strong>Dra. Viviane Colacino de Godoy Marquesini</strong>, depois de 18 anos de advocacia corporativa, com o conceito de <strong>advocacia boutique</strong>: estrutura compacta, para que cada cliente seja atendido com exclusividade, como se fosse único.</p>
+        <p>Acreditamos que o cliente precisa <strong>entender o próprio caso</strong>. Por isso explicamos cada etapa em linguagem clara, sem juridiquês, e mantemos o acompanhamento próximo do começo ao fim, presencialmente em Bauru ou de forma online, para todo o país.</p>
         <p>Toda situação começa com uma conversa: você conta o que aconteceu, avaliamos os documentos e explicamos com honestidade os caminhos possíveis, os prazos e os riscos.</p>
         <div class="sig">
           <a href={u("/o-escritorio")} class="btn btn-ghost">Conhecer o escritório</a>

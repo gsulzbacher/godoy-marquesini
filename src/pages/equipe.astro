@@ -6,10 +6,10 @@ import { equipe } from '../data/equipe.js';
 ---
 <Base
   title="Equipe | Godoy Marquesini Advocacia"
-  description="Conheça os advogados do Godoy Marquesini Advocacia, escritório de Bauru/SP com atuação em Direito do Trabalho, Previdenciário e Cível."
+  description="Conheça os advogados do Godoy Marquesini Advocacia, escritório de Bauru/SP com atuação em Direito Trabalhista, Civil e Previdenciário."
 >
   <PageHero kicker="Equipe" titulo="Quem vai cuidar do seu caso"
-    lead="Advogados e advogadas dedicados, cada um com a sua área de atuação." />
+    lead="Uma equipe compacta de propósito, para que cada caso seja acompanhado de perto por quem realmente o conduz." />
 
   <section>
     <div class="wrap">
@@ -20,9 +20,9 @@ import { equipe } from '../data/equipe.js';
               <img src={p.foto} alt={p.nome} width="800" height="605" loading="lazy" decoding="async" style={`object-position:${p.pos}`} />
             </div>
             <div class="body">
-              <h2>{p.nome}</h2>
-              <p class="role">{p.papel}{p.oab ? ` · ${p.oab}` : ''}</p>
-              <p>{p.bio ?? p.area}</p>
+              <h2>{p.curto}</h2>
+              <p class="role">{p.papel} · {p.oab}</p>
+              <p>{p.bio}</p>
             </div>
           </article>
         ))}

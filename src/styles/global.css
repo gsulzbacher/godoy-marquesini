@@ -573,3 +573,24 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);padding:60px 0 0;b
     radial-gradient(1000px 480px at 76% 6%,rgba(150,158,162,.15),rgba(150,158,162,0) 64%),
     linear-gradient(180deg,rgba(255,255,255,.045) 0%,rgba(255,255,255,0) 45%);
 }
+
+/* ---------- O escritório: missão, visão e trajetória ---------- */
+.missao-visao{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.mv{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:34px 32px}
+.mv h3{color:var(--navy);margin-bottom:12px;font-size:1.3rem}
+.mv p{font-size:.92rem;color:var(--ink-soft)}
+.small-note{font-size:.78rem;color:var(--ink-soft);margin-bottom:22px}
+.trajetoria{margin-top:54px;border-top:1px solid var(--line);padding-top:26px}
+.trajetoria summary{
+  cursor:pointer;font-size:.78rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--navy);list-style:none;display:inline-flex;gap:9px;align-items:center;
+}
+.trajetoria summary::-webkit-details-marker{display:none}
+.trajetoria summary::after{content:'+';font-size:1.2rem;line-height:1;color:var(--gold)}
+.trajetoria[open] summary::after{content:'−'}
+.trajetoria ul{margin:22px 0 0;padding-left:20px;display:grid;gap:9px;max-width:72ch}
+.trajetoria li{font-size:.88rem;color:var(--ink-soft);line-height:1.6}
+@media(max-width:940px){.missao-visao{grid-template-columns:1fr}}
+
+/* a frase da hero são duas orações: quebra entre elas só onde há largura */
+@media(max-width:700px){.hero h1 br{display:none}}

@@ -3,15 +3,15 @@ import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import AreaIcon from '../../components/AreaIcon.astro';
 import CtaFinal from '../../components/CtaFinal.astro';
-import { areas, temasTrabalhistas } from '../../data/areas.js';
+import { areas, temasFrequentes } from '../../data/areas.js';
 import { u } from '../../data/site.js';
 ---
 <Base
-  title="Áreas de Atuação | Trabalhista, Previdenciário e Cível | Godoy Marquesini"
-  description="Direito do Trabalho, Previdenciário e Cível. Veja as situações atendidas pelo escritório Godoy Marquesini, em Bauru/SP e em todo o Brasil."
+  title="Áreas de Atuação | Trabalhista, Civil e Previdenciário | Godoy Marquesini"
+  description="Direito Trabalhista, Civil e Previdenciário. Veja as situações atendidas pelo escritório Godoy Marquesini, em Bauru/SP e em todo o Brasil."
 >
   <PageHero kicker="Áreas de atuação" titulo="Onde podemos ajudar você"
-    lead="Direito do Trabalho como especialidade principal, com atuação também em Previdenciário e Cível." />
+    lead="Três áreas conduzidas com a mesma exigência técnica, para pessoas físicas e jurídicas, na via preventiva e na contenciosa." />
 
   <section>
     <div class="wrap">
@@ -26,8 +26,8 @@ import { u } from '../../data/site.js';
         ))}
       </div>
       <div class="subareas rv">
-        <p class="lbl">Casos trabalhistas que mais atendemos</p>
-        <div class="chips">{temasTrabalhistas.map((t) => <span class="chip">{t}</span>)}</div>
+        <p class="lbl">Situações que mais atendemos</p>
+        <div class="chips">{temasFrequentes.map((t) => <span class="chip">{t}</span>)}</div>
       </div>
     </div>
   </section>

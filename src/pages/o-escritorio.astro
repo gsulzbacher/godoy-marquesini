@@ -3,36 +3,55 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import SectionHead from '../components/SectionHead.astro';
 import CtaFinal from '../components/CtaFinal.astro';
-import { valores } from '../data/conteudo.js';
+import { valores, missao, visao } from '../data/conteudo.js';
 import { site, u } from '../data/site.js';
+import { equipe } from '../data/equipe.js';
+
+const viviane = equipe[0];
 ---
 <Base
   title="O Escritório | Godoy Marquesini Advocacia em Bauru/SP"
-  description="Conheça o Godoy Marquesini Advocacia: escritório de Bauru especializado em Direito do Trabalho, com atuação em Previdenciário e Cível e atendimento em todo o Brasil."
+  description="Advocacia boutique criada em 2016 em Bauru/SP, com mais de 28 anos de experiência em Direito Trabalhista, Civil e Previdenciário. Atendimento em 18 estados e no Distrito Federal."
 >
-  <PageHero kicker="O escritório" titulo="Advocacia feita de perto"
-    lead="Um escritório construído sobre a defesa de quem trabalha, em Bauru e em todo o Brasil." />
+  <PageHero kicker="O escritório" titulo="Cada processo tem um número. Para nós, cada número tem uma história."
+    lead="Advocacia boutique em Bauru/SP, para pessoas e empresas, nas áreas Trabalhista, Civil e Previdenciária." />
 
   <section>
     <div class="wrap sobre">
       <div class="sobre-visual rv">
-        <img src={u("/fotos/equipe/equipe.jpg")} alt="Equipe do Godoy Marquesini Advocacia reunida no escritório" width="1400" height="1059" loading="lazy" decoding="async" />
+        <img src={u('/fotos/equipe/equipe.jpg')} alt="Equipe do Godoy Marquesini Advocacia reunida no escritório" width="1400" height="1059" loading="lazy" decoding="async" />
         <div class="frame"></div>
         <div class="cap"><b>Equipe Godoy Marquesini</b>{site.cidade} · Atuação em todo o Brasil</div>
       </div>
       <div class="sobre-text rv">
         <span class="kicker">Nossa história</span>
-        <h2>Nascemos para defender quem trabalha</h2>
-        <p style="margin-top:20px">O Godoy Marquesini Advocacia começou com uma escolha clara: atuar do lado de quem trabalha. Desde então, a rotina do escritório é ouvir histórias de pessoas que passaram por demissão injusta, assédio, acidente, salário atrasado ou um benefício negado, e transformar isso em um caminho jurídico possível.</p>
-        <p>Com o tempo, os pedidos foram além da esfera trabalhista. Clientes que confiaram um processo ao escritório voltavam com dúvidas sobre aposentadoria, sobre um contrato mal resolvido, sobre uma cobrança indevida. Foi assim que as áreas Previdenciária e Cível entraram, com a mesma exigência técnica da área principal.</p>
-        <p>Hoje o escritório atende de Bauru para todo o Brasil, com processos digitais e acompanhamento à distância, sem que isso custe a proximidade do atendimento.</p>
+        <h2>Uma advocacia feita para atender de perto</h2>
+        <p style="margin-top:20px">A Godoy Marquesini Advocacia foi criada em 2016 pela <strong>Dra. Viviane Colacino de Godoy Marquesini</strong>, depois de 18 anos de experiência na advocacia corporativa, com o conceito de <strong>advocacia boutique</strong>: um escritório especializado, em que o cliente é atendido com exclusividade e de forma personalizada, como se fosse único.</p>
+        <p>Para atender as demais necessidades de quem já confiava no escritório, a equipe cresceu para o <strong>Direito Previdenciário</strong> e para as diversas áreas do <strong>Direito Civil</strong>. A estrutura seguiu compacta e eficiente, de propósito: é o que permite um trabalho inteligente, criativo e estratégico em cada caso, em vez de uma esteira de processos.</p>
+        <p>Com os processos digitais, a atuação se ampliou para fora de Bauru. Hoje a Godoy Marquesini está presente em <strong>18 estados e no Distrito Federal</strong>, com atendimento personalizado por videochamada e WhatsApp e, sempre que necessário, o suporte presencial de advogados e escritórios parceiros.</p>
       </div>
     </div>
   </section>
 
   <section class="alt">
     <div class="wrap">
-      <SectionHead kicker="Como trabalhamos" titulo="Quatro compromissos que valem para todo caso" center />
+      <SectionHead kicker="Missão e visão" titulo="O que nos move" center />
+      <div class="missao-visao">
+        <div class="mv rv">
+          <h3>Missão</h3>
+          <p>{missao}</p>
+        </div>
+        <div class="mv rv">
+          <h3>Visão</h3>
+          <p>{visao}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <SectionHead kicker="Nossos valores" titulo="Como isso aparece no dia a dia" center />
       <div class="valores">
         {valores.map(([t, d]) => (
           <div class="valor rv"><h3>{t}</h3><p>{d}</p></div>
@@ -41,27 +60,37 @@ import { site, u } from '../data/site.js';
     </div>
   </section>
 
-  <section>
+  <section class="alt">
     <div class="wrap">
       <div class="responsavel rv">
         <div>
           <span class="kicker">Responsável técnica</span>
-          <h2>Dra. Viviane Colacino de Godoy Marquesini</h2>
-          <p class="lead">{site.oab} · Direito do Trabalho</p>
-          <p>Responde tecnicamente pelo escritório e conduz pessoalmente os casos de maior complexidade na área trabalhista.</p>
-          <a class="btn btn-ghost" href={u("/equipe")}>Conhecer a equipe</a>
+          <h2>{viviane.nome}</h2>
+          <p class="lead">{viviane.oab}</p>
+          <p>{viviane.bio}</p>
+          <p class="small-note">{viviane.oabSuplementar}.</p>
+          <a class="btn btn-ghost" href={u('/equipe')}>Conhecer a equipe</a>
         </div>
-        <img src={u("/fotos/equipe/viviane.jpg")} alt="Dra. Viviane Colacino de Godoy Marquesini" width="800" height="605" loading="lazy" decoding="async" style="object-position:72% 22%" />
+        <img src={viviane.foto} alt={viviane.nome} width="800" height="605" loading="lazy" decoding="async" style={`object-position:${viviane.pos}`} />
       </div>
+
+      <details class="trajetoria rv">
+        <summary>Formação e trajetória completa</summary>
+        <ul>
+          {viviane.trajetoria.map((item) => <li>{item}</li>)}
+          <li>Participação em diversos simpósios, congressos e palestras jurídicas.</li>
+        </ul>
+      </details>
     </div>
   </section>
 
-  <section class="alt">
+  <section>
     <div class="wrap">
       <SectionHead kicker="Estrutura e atendimento" titulo="Presencial em Bauru, online para o Brasil inteiro" />
       <div class="prosa rv">
-        <p>O escritório fica em Bauru, no interior de São Paulo, e recebe clientes presencialmente com hora marcada.</p>
-        <p>Para quem está em outra cidade ou estado, o atendimento é feito por videochamada e WhatsApp, com o mesmo acompanhamento. A maior parte dos processos trabalhistas e previdenciários tramita de forma eletrônica, o que permite atuar em qualquer região do país.</p>
+        <p>O escritório fica na {site.endereco}, em {site.cidade}, e recebe clientes presencialmente com hora marcada, de segunda a sexta, das 9h às 11h30 e das 13h30 às 17h.</p>
+        <p>Para quem está em outra cidade ou estado, o atendimento é feito por videochamada e WhatsApp, com o mesmo acompanhamento. A maior parte dos processos tramita de forma eletrônica, o que permite atuar em qualquer região do país.</p>
+        <p>A tecnologia faz parte da advocacia que construímos: usamos ferramentas digitais e inteligência artificial para tornar os processos internos e o atendimento mais ágeis, sempre preservando a supervisão e a decisão humana naquilo que exige análise jurídica.</p>
       </div>
     </div>
   </section>
