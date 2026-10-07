@@ -15,14 +15,16 @@ export const passos = [
   ['Acompanhamento', 'Você recebe atualização a cada movimentação relevante do processo, sem precisar ficar perguntando.'],
 ];
 
-// Valores da cliente, condensados para leitura em tela.
+// Os 8 valores da cliente, na ordem e no sentido do documento dela.
 export const valores = [
-  ['Exclusividade', 'Cada cliente é atendido de forma individualizada, como se fosse único. É o que sustenta a ideia de advocacia boutique: estrutura compacta para poder acompanhar cada caso de perto.'],
-  ['Integridade e transparência', 'Atuação íntegra e ética na condução dos processos e na relação com clientes e colaboradores. Se um caso é frágil, você vai saber desde o começo.'],
-  ['Excelência técnica', 'Busca constante de atualização, cursos e estudo de doutrina e jurisprudência. Cada peça é construída sobre o que há de mais atual e sobre os documentos do caso.'],
-  ['Agilidade', 'Atendimento no menor prazo possível e retorno a cada movimentação que muda alguma coisa, sem que você precise ficar perguntando.'],
-  ['Inovação', 'Ferramentas digitais e inteligência artificial tornam os processos internos e o atendimento mais ágeis, sempre com supervisão e decisão humana naquilo que exige análise jurídica.'],
+  ['Excelência', 'Prestar serviços com eficiência e qualidade, superando as expectativas de cada cliente. Cada peça é construída sobre jurisprudência atual e sobre os documentos do caso.'],
+  ['Exclusividade', 'Cada cliente é atendido de forma individualizada, como se fosse único. É o que sustenta a ideia de advocacia boutique: estrutura compacta para acompanhar cada caso de perto.'],
+  ['Integridade e ética', 'Atuação íntegra e ética na condução dos processos e na relação com clientes e colaboradores.'],
+  ['Entusiasmo e dedicação', 'Busca constante de atualização, cursos e enriquecimento doutrinário e jurisprudencial, para atender melhor cada necessidade que chega.'],
+  ['Lealdade, honestidade e transparência', 'Relacionamento leal, honesto e transparente com o cliente. Se um caso é frágil, você vai saber desde o começo.'],
+  ['Agilidade', 'Atendimento no menor prazo possível, conforme a necessidade de cada um, e retorno a cada movimentação que muda alguma coisa.'],
   ['Confiança', 'O objetivo de tudo acima é um só: que você possa confiar no nosso trabalho e na nossa competência do início ao fim.'],
+  ['Inovação', 'A tecnologia faz parte da advocacia que construímos. Ferramentas digitais e inteligência artificial tornam os processos internos e o atendimento mais ágeis, sempre preservando a supervisão e a decisão humana naquilo que exige análise jurídica.'],
 ];
 
 export const missao = 'Prestar assistência jurídica preventiva e contenciosa com excelência, profissionalismo, seriedade e transparência, oferecendo soluções eficazes para cada cliente. Compreender cada história, identificar os direitos envolvidos e definir, com responsabilidade, o melhor caminho jurídico para cada situação.';

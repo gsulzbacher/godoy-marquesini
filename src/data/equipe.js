@@ -14,6 +14,7 @@ export const equipe = [
     trajetoria: [
       'Graduação em Direito — Instituição Toledo de Ensino, Faculdade de Direito de Bauru (1997)',
       'Especialização em Direito Constitucional — Centro de Pós-Graduação da Instituição Toledo de Ensino de Bauru (1999)',
+      'Reciclagem Profissional e Atualização Jurídica em Direito do Trabalho — Curso Preparatório para Concursos (2005)',
       'Pós-graduação em Direito do Trabalho — Fundação Getulio Vargas (2010)',
       'MBA em Direito do Trabalho e Direito Previdenciário — Faculdade Legale (2018)',
       'Conciliadora e mediadora do Tribunal de Justiça do Estado de São Paulo (2012 a 2015)',
@@ -22,6 +23,7 @@ export const equipe = [
       'Presidente da Comissão de Empreendedorismo Jurídico — OAB Bauru (2019 a 2024)',
       'Coordenadora da 12ª Região da Comissão de Empreendedorismo Legal — OAB São Paulo (2022 a 2024)',
       'Membro-convidada do Grupo de Estudos em Direito do Trabalho da USP/Ribeirão Preto (2022 a 2024)',
+      'Parceira associada ao CIESP Bauru (2018/2019)',
       'Mentora de advogados recém-formados nas áreas Cível e Trabalhista — Easy Mentoria Jurídica (desde 2016)',
       'Co-autora do livro "Inteligência Artificial e Plataformas Digitais nas Relações de Trabalho", com artigo sobre Segurança do Trabalho nas Plataformas Digitais — Editora Am2 (2024)',
     ],
