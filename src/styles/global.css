@@ -561,10 +561,14 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);padding:60px 0 0;b
    impressão de superfície iluminada em vez de bloco de cor chapada.
    ============================================================ */
 
-/* faixas claras alternadas: clareia no topo e assenta na cor embaixo */
+/* Faixas claras alternadas.
+   O degradê PRECISA começar em zero: o divisor de dobra é pintado com a cor
+   chapada da seção, então qualquer clareado no topo criava um degrau visível
+   entre a faixa do divisor e o começo da seção (eram 18 pontos de luminância).
+   A profundidade vem de um aprofundamento para baixo, que não toca a emenda. */
 .alt{
   background-color:var(--paper-2);
-  background-image:linear-gradient(180deg,rgba(255,255,255,.85) 0%,rgba(255,255,255,0) 62%);
+  background-image:linear-gradient(180deg,rgba(7,1,43,0) 0%,rgba(7,1,43,.038) 100%);
 }
 
 /* faixas escuras: brilho deslocado, para o navy não virar um bloco morto */
