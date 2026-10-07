@@ -1,0 +1,121 @@
+---
+import { banners } from '../data/banner.js';
+import { zap, u } from '../data/site.js';
+import FoldDivider from './FoldDivider.astro';
+---
+<section class="hero hero-carrossel com-dobra" style="--fold-fill:var(--paper-2)" data-carrossel-hero>
+  <div class="hero-slides">
+    {banners.map((b, i) => (
+      <div class="hero-slide" data-slide data-ativo={i === 0 ? 'true' : 'false'} aria-hidden={i === 0 ? 'false' : 'true'}>
+        {/* nenhum slide é lazy: invisível por opacity, o navegador adiaria o download
+            e a imagem apareceria só depois da troca. O 1º tem prioridade, os outros
+            baixam em segundo plano. */}
+        <img src={b.img} alt={i === 0 ? b.alt : ''} width="1800" height="1201"
+             loading="eager" fetchpriority={i === 0 ? 'high' : 'low'}
+             decoding="async" style={`object-position:${b.foco}`} />
+      </div>
+    ))}
+  </div>
+
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="kicker">Advocacia boutique · desde 2016</span>
+      <h1 class="hero-frases">
+        {banners.map((b, i) => (
+          <span class="hero-frase" data-frase data-ativo={i === 0 ? 'true' : 'false'}>{b.frase}</span>
+        ))}
+      </h1>
+      <p class="lead">Mais de 28 anos de advocacia em Direito Trabalhista, Civil e Previdenciário, para pessoas e empresas. Atendimento individualizado, de Bauru para 18 estados e o Distrito Federal.</p>
+      <div class="hero-cta">
+        <a href={zap()} target="_blank" rel="noopener" class="btn">Quero analisar meu caso <span class="arw" aria-hidden="true">→</span></a>
+        <a href={u('/areas')} class="btn btn-ghost">Conhecer as áreas</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-ctrl">
+    <div class="hero-pontos" role="tablist" aria-label="Escolher banner"></div>
+    <button type="button" class="hero-pausa" data-pausa aria-label="Pausar a troca automática de banners">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="4" height="14" rx="1"/><rect x="13" y="5" width="4" height="14" rx="1"/></svg>
+    </button>
+  </div>
+  <p class="sr-only" role="status" aria-live="polite" data-anuncio></p>
+
+  <FoldDivider href="#areas" rotulo="Ir para as áreas de atuação" />
+</section>
+
+<script>
+  const hero = document.querySelector('[data-carrossel-hero]');
+  if (hero) {
+    const slides = [...hero.querySelectorAll('[data-slide]')];
+    const frases = [...hero.querySelectorAll('[data-frase]')];
+    const pontos = hero.querySelector('.hero-pontos');
+    const btnPausa = hero.querySelector('[data-pausa]');
+    const anuncio = hero.querySelector('[data-anuncio]');
+    const total = slides.length;
+    const menosMovimento = matchMedia('(prefers-reduced-motion: reduce)');
+
+    let atual = 0;
+    let timer = null;
+    // sem autoplay para quem pediu menos movimento: a troca passa a ser só manual
+    let rodando = !menosMovimento.matches;
+
+    const icone = {
+      pausa: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="4" height="14" rx="1"/><rect x="13" y="5" width="4" height="14" rx="1"/></svg>',
+      play: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5l11 7-11 7z"/></svg>',
+    };
+
+    for (let i = 0; i < total; i++) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'hero-ponto';
+      b.setAttribute('role', 'tab');
+      b.setAttribute('aria-label', `Banner ${i + 1} de ${total}`);
+      b.addEventListener('click', () => { mostrar(i); reiniciar(); });
+      pontos.append(b);
+    }
+
+    function mostrar(i) {
+      atual = (i + total) % total;
+      slides.forEach((s, k) => {
+        const on = k === atual;
+        s.dataset.ativo = on ? 'true' : 'false';
+        s.setAttribute('aria-hidden', on ? 'false' : 'true');
+      });
+      frases.forEach((f, k) => (f.dataset.ativo = k === atual ? 'true' : 'false'));
+      [...pontos.children].forEach((b, k) => {
+        b.classList.toggle('on', k === atual);
+        b.setAttribute('aria-selected', k === atual ? 'true' : 'false');
+      });
+      anuncio.textContent = `Banner ${atual + 1} de ${total}`;
+    }
+
+    function reiniciar() {
+      clearInterval(timer);
+      // 9s: o título tem até 3 linhas em serifada, 6s trocava no meio da leitura
+      if (rodando) timer = setInterval(() => mostrar(atual + 1), 9000);
+    }
+
+    btnPausa.addEventListener('click', () => {
+      rodando = !rodando;
+      btnPausa.innerHTML = rodando ? icone.pausa : icone.play;
+      btnPausa.setAttribute('aria-label', rodando ? 'Pausar a troca automática de banners' : 'Retomar a troca automática de banners');
+      reiniciar();
+    });
+
+    // não troca o banner embaixo do mouse nem com o teclado dentro da hero
+    hero.addEventListener('mouseenter', () => clearInterval(timer));
+    hero.addEventListener('mouseleave', reiniciar);
+    hero.addEventListener('focusin', () => clearInterval(timer));
+    hero.addEventListener('focusout', reiniciar);
+    // nem com a aba em segundo plano
+    document.addEventListener('visibilitychange', () => (document.hidden ? clearInterval(timer) : reiniciar()));
+
+    if (!rodando) {
+      btnPausa.innerHTML = icone.play;
+      btnPausa.setAttribute('aria-label', 'Retomar a troca automática de banners');
+    }
+    mostrar(0);
+    reiniciar();
+  }
+</script>

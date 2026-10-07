@@ -9,7 +9,7 @@ export const equipe = [
     oabSuplementar: 'Inscrição suplementar na OAB/MG 252.809, OAB/RJ 260.923 e OAB/GO 79.440-A',
     area: 'Direito do Trabalho',
     foto: u('/fotos/equipe/viviane.jpg'),
-    pos: '72% 22%',
+    pos: '50% 28%',
     bio: 'Graduada em Direito pela Instituição Toledo de Ensino de Bauru desde 1997, com especialização em Direito Constitucional, pós-graduação em Direito do Trabalho pela Fundação Getulio Vargas e MBA em Direito do Trabalho e Previdenciário. Fundou a Godoy Marquesini Advocacia em 2016, depois de 18 anos atuando na advocacia corporativa.',
     trajetoria: [
       'Graduação em Direito — Instituição Toledo de Ensino, Faculdade de Direito de Bauru (1997)',
@@ -35,7 +35,7 @@ export const equipe = [
     oab: 'OAB/SP 375.996',
     area: 'Cível, Bancário, Consumidor, Família, Sucessões e Contratual',
     foto: u('/fotos/equipe/eduardo.jpg'),
-    pos: '50% 12%',
+    pos: '50% 28%',
     bio: 'Graduado em Direito pela Instituição Toledo de Ensino, com formação complementar em Direito Bancário, Direito Digital e Proteção de Dados (LGPD), Direito Securitário e Falência e Recuperação Judicial, pela Fundação Getulio Vargas, pela Escola Superior da Advocacia e pelo Damásio Educacional. Ao longo da carreira atuou na advocacia privada, na Procuradoria da República em Bauru e na Defensoria Pública do Estado de São Paulo.',
   },
   {
@@ -45,7 +45,7 @@ export const equipe = [
     oab: 'OAB/SP 509.158',
     area: 'Direito do Trabalho',
     foto: u('/fotos/equipe/rafael.jpg'),
-    pos: '50% 18%',
+    pos: '50% 28%',
     bio: 'Graduado em Direito pela Faculdade Galileu e pós-graduado em Prática Trabalhista pela Escola Mineira de Direito. É também graduado em Imagem e Som pela Universidade Federal de São Carlos. Atua em Direito do Trabalho, na representação tanto de empregados quanto de empresas, em demandas consultivas e contenciosas. Foi servidor concursado do Estado de São Paulo e atuou no departamento jurídico da SABESP.',
   },
   {
@@ -55,7 +55,7 @@ export const equipe = [
     oab: 'OAB/SP 546.990',
     area: 'Direito do Trabalho e Previdenciário',
     foto: u('/fotos/equipe/ana-carolina.jpg'),
-    pos: '70% 20%',
+    pos: '50% 28%',
     bio: 'Graduada em Direito pela Instituição Toledo de Ensino. Atua nas áreas de Direito do Trabalho e Direito Previdenciário, com experiência na representação de empregados e formação prática em Direito Previdenciário.',
   },
 ];

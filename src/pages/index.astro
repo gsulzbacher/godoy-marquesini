@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import SectionHead from '../components/SectionHead.astro';
-import FoldDivider from '../components/FoldDivider.astro';
+import HeroCarrossel from '../components/HeroCarrossel.astro';
 import AreaIcon from '../components/AreaIcon.astro';
 import Depoimentos from '../components/Depoimentos.astro';
 import Faq from '../components/Faq.astro';
@@ -43,20 +43,7 @@ const schema = {
   preloadHero
   schema={schema}
 >
-  <section class="hero has-photo com-dobra" style="--fold-fill:var(--paper-2)">
-    <div class="wrap">
-      <div class="hero-inner">
-        <span class="kicker">Advocacia boutique · desde 2016</span>
-        <h1>Defender direitos exige conhecimento.<br /><em>Saber como fazê-lo exige experiência.</em></h1>
-        <p class="lead">Mais de 28 anos de advocacia em Direito Trabalhista, Civil e Previdenciário, para pessoas e empresas. Atendimento individualizado, de Bauru para 18 estados e o Distrito Federal.</p>
-        <div class="hero-cta">
-          <a href={zap()} target="_blank" rel="noopener" class="btn">Falar no WhatsApp <span class="arw" aria-hidden="true">→</span></a>
-          <a href={u("/areas")} class="btn btn-ghost">Conhecer as áreas</a>
-        </div>
-      </div>
-    </div>
-    <FoldDivider href="#areas" rotulo="Ir para as áreas de atuação" />
-  </section>
+  <HeroCarrossel />
 
   <section id="areas" class="alt">
     <div class="wrap">
@@ -82,7 +69,7 @@ const schema = {
   <section id="sobre">
     <div class="wrap sobre">
       <div class="sobre-visual rv">
-        <img src={u("/fotos/equipe/equipe.jpg")} alt="Equipe do Godoy Marquesini Advocacia reunida no escritório" width="1400" height="1059" loading="lazy" decoding="async" />
+        <img src={u("/fotos/equipe/equipe.jpg")} alt="Equipe do Godoy Marquesini Advocacia reunida no escritório" width="1442" height="1091" loading="lazy" decoding="async" />
         <div class="frame"></div>
         <div class="cap"><b>Equipe Godoy Marquesini</b>{site.cidade} · Atuação em todo o Brasil</div>
       </div>
