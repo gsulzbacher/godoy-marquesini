@@ -67,7 +67,7 @@ const viviane = equipe[0];
           <span class="kicker">Responsável técnica</span>
           <h2>{viviane.nome}</h2>
           <p class="lead">{viviane.oab}</p>
-          <p>{viviane.bio}</p>
+          {viviane.historia.map((par) => <p>{par}</p>)}
           <p class="small-note">{viviane.oabSuplementar}.</p>
           <a class="btn btn-ghost" href={u('/equipe')}>Conhecer a equipe</a>
         </div>

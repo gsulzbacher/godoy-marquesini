@@ -10,7 +10,14 @@ export const equipe = [
     area: 'Direito do Trabalho',
     foto: u('/fotos/equipe/viviane.jpg'),
     pos: '50% 28%',
-    bio: 'Graduada em Direito pela Instituição Toledo de Ensino de Bauru desde 1997, com especialização em Direito Constitucional, pós-graduação em Direito do Trabalho pela Fundação Getulio Vargas e MBA em Direito do Trabalho e Previdenciário. Fundou a Godoy Marquesini Advocacia em 2016, depois de 18 anos atuando na advocacia corporativa.',
+    bio: 'Formada pela Instituição Toledo de Ensino de Bauru desde 1997, começou a advogar em março de 1998 em um renomado escritório da cidade, nas áreas cível e trabalhista, com foco no atendimento a empresas.',
+    // Narrativa da própria cliente, do documento institucional. Mantida perto
+    // das palavras dela: é a história dela sendo contada.
+    historia: [
+      'A Dra. Viviane Colacino de Godoy Marquesini é formada pela Instituição Toledo de Ensino de Bauru desde 1997. Começou a advogar em março de 1998, em um renomado escritório de advocacia da cidade, atuando nas áreas cível e trabalhista, com foco no atendimento a empresas.',
+      'Depois de 18 anos de experiência, especialização, MBA e uma paixão pelo Direito do Trabalho, sentiu a necessidade de oferecer uma advocacia diferenciada no mercado, tanto para pessoas físicas quanto para pessoas jurídicas, em que o cliente pudesse ser atendido com exclusividade e segurança, por profissionais especialistas.',
+      'Em 16 de março de 2016, iniciou as atividades da Godoy Marquesini Advocacia: um escritório jovem, dinâmico, de gestão inovadora, somada a toda a experiência desses mais de 28 anos. Atende com qualidade e eficiência não só na área Trabalhista, sua especialidade, mas também no Direito Civil, outra paixão, e mais recentemente no Direito Previdenciário, áreas hoje desenvolvidas pela sua equipe, sob a sua supervisão.',
+    ],
     trajetoria: [
       'Graduação em Direito — Instituição Toledo de Ensino, Faculdade de Direito de Bauru (1997)',
       'Especialização em Direito Constitucional — Centro de Pós-Graduação da Instituição Toledo de Ensino de Bauru (1999)',
