@@ -9,7 +9,7 @@ export const areas = [
       title: 'Advogado Trabalhista em Bauru/SP | Godoy Marquesini Advocacia',
       description: 'Horas extras, verbas rescisórias, rescisão indireta, insalubridade, acidente de trabalho e reconhecimento de vínculo. Atendimento em Bauru e em todo o Brasil.',
     },
-    intro: 'Com mais de 28 anos de atuação, o Direito do Trabalho é uma das principais áreas de especialização do escritório, em demandas consultivas e contenciosas. Nossa atuação alia experiência, conhecimento técnico e estratégia à análise individualizada de cada caso, buscando compreender os fatos, identificar os direitos e riscos envolvidos e definir o caminho jurídico mais adequado para cada situação.',
+    intro: 'Com mais de 28 anos de atuação, a Godoy Marquesini Advocacia tem no Direito do Trabalho uma de suas principais áreas de especialização, prestando assistência jurídica, em demandas consultivas e contenciosas. Nossa atuação alia experiência, conhecimento técnico e estratégia à análise individualizada de cada caso, buscando compreender os fatos, identificar os direitos e riscos envolvidos e definir o caminho jurídico mais adequado para cada situação.',
     icone: 'balanca',
     itens: [
       ['Horas extras e intervalos', 'Trabalho além da jornada contratada gera horas extras com adicional, e reflete em férias, 13º, FGTS e descanso semanal. Vale também para jornada em escala, intervalo não usufruído e horas de sobreaviso.'],
@@ -35,7 +35,7 @@ export const areas = [
       title: 'Advogado Cível em Bauru/SP | Godoy Marquesini Advocacia',
       description: 'Direito do Consumidor, bancário, família, sucessões, elaboração e análise de contratos e cobranças judiciais e extrajudiciais.',
     },
-    intro: 'O Direito Civil regula as relações entre particulares, pessoas físicas e jurídicas, no âmbito privado. A advocacia cível presta consultoria preventiva e atuação contenciosa, tanto para evitar litígios futuros quanto para resolver conflitos já instalados, em questões ligadas à família, aos bens e à forma de adquiri-los, à sucessão, ao cumprimento de obrigações e aos contratos.',
+    intro: 'O Direito Civil regula as relações estabelecidas entre particulares, pessoas físicas e jurídicas, no âmbito privado. E a advocacia cível presta consultoria jurídica preventiva e contenciosa sob o aspecto legal, para prevenir problemas de futuros e eventuais litígios, bem como sanar os conflitos já instalados, relacionados à pessoa física e jurídica, à família, aos bens e à sua forma de aquisição, à sucessão, ao cumprimento de obrigações, aos contratos.',
     icone: 'documento',
     itens: [
       ['Direito do Consumidor', 'Cobrança indevida, negativação irregular, produto ou serviço com defeito, plano de saúde que nega cobertura e problemas com prestadores de serviço.'],
@@ -56,7 +56,7 @@ export const areas = [
       title: 'Advogado Previdenciário em Bauru/SP | Godoy Marquesini Advocacia',
       description: 'Aposentadorias, planejamento previdenciário, benefícios por incapacidade, BPC/LOAS, pensão por morte e revisão de benefícios do INSS.',
     },
-    intro: 'O Direito Previdenciário está diretamente ligado à proteção do trabalhador e de sua família em momentos importantes da vida, como a aposentadoria, a incapacidade para o trabalho e outras situações que podem gerar direito a benefícios. Atuamos na via administrativa, junto ao INSS, e na via judicial.',
+    intro: 'O Direito Previdenciário está diretamente relacionado à proteção do trabalhador e de sua família em momentos importantes da vida, como a aposentadoria, a incapacidade para o trabalho e outras situações que podem gerar o direito a benefícios previdenciários.',
     icone: 'escudo',
     itens: [
       ['Aposentadorias', 'Por idade, por tempo de contribuição nas regras de transição, especial para quem trabalhou exposto a agentes nocivos, e por incapacidade permanente. Cada caso exige a análise do CNIS e do histórico completo de contribuições.'],

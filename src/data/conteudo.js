@@ -15,26 +15,38 @@ export const passos = [
   ['Acompanhamento', 'Você recebe atualização a cada movimentação relevante do processo, sem precisar ficar perguntando.'],
 ];
 
-// Os 8 valores da cliente, na ordem e no sentido do documento dela.
-export const valores = [
-  ['Excelência', 'Prestar serviços com eficiência e qualidade, superando as expectativas de cada cliente. Cada peça é construída sobre jurisprudência atual e sobre os documentos do caso.'],
-  ['Exclusividade', 'Cada cliente é atendido de forma individualizada, como se fosse único. É o que sustenta a ideia de advocacia boutique: estrutura compacta para acompanhar cada caso de perto.'],
-  ['Integridade e ética', 'Atuação íntegra e ética na condução dos processos e na relação com clientes e colaboradores.'],
-  ['Entusiasmo e dedicação', 'Busca constante de atualização, cursos e enriquecimento doutrinário e jurisprudencial, para atender melhor cada necessidade que chega.'],
-  ['Lealdade, honestidade e transparência', 'Relacionamento leal, honesto e transparente com o cliente. Se um caso é frágil, você vai saber desde o começo.'],
-  ['Agilidade', 'Atendimento no menor prazo possível, conforme a necessidade de cada um, e retorno a cada movimentação que muda alguma coisa.'],
-  ['Confiança', 'O objetivo de tudo acima é um só: que você possa confiar no nosso trabalho e na nossa competência do início ao fim.'],
-  ['Inovação', 'A tecnologia faz parte da advocacia que construímos. Ferramentas digitais e inteligência artificial tornam os processos internos e o atendimento mais ágeis, sempre preservando a supervisão e a decisão humana naquilo que exige análise jurídica.'],
+// TEXTO DA CLIENTE, LITERAL.
+// Decisão do Gabriel em 08/10: nos blocos institucionais vale a redação dela,
+// não a nossa. Só foram corrigidos erros óbvios de digitação. Ao mexer aqui,
+// conferir contra material-institucional/textos/INFORMAÇÕES PARA O SITE.docx
+
+export const apresentacao = [
+  'A GODOY MARQUESINI ADVOCACIA foi criada em 2016 pela Dra. Viviane Colacino de Godoy Marquesini, após 18 anos de experiência na advocacia corporativa, com o conceito de “advocacia boutique”, especializada em soluções na área do Direito Trabalhista, onde o diferencial é o cliente ser atendido com exclusividade e de forma personalizada, como se fosse único.',
+  'Ainda visando atender as demais necessidades de nossos clientes, contamos com uma equipe de alta performance no Direito Previdenciário e nas diversas áreas do Direito Civil.',
+  'O escritório com estrutura compacta e eficiente possui grande expertise, sempre com o objetivo de desenvolver um trabalho inteligente, de qualidade, criativo e estratégico na busca da melhor solução às questões apresentadas pelo cliente.',
+  'Com o advento dos processos digitais, ampliamos nossa atuação e aproximamos nossa experiência de clientes em diferentes regiões do país. Atualmente, a Godoy Marquesini Advocacia está presente em 18 estados, além do Distrito Federal, oferecendo atendimento personalizado por Google Meet e WhatsApp e, sempre que necessário, contando com o suporte presencial de advogados e escritórios parceiros.',
 ];
 
-export const missao = 'Prestar assistência jurídica preventiva e contenciosa com excelência, profissionalismo, seriedade e transparência, oferecendo soluções eficazes para cada cliente. Compreender cada história, identificar os direitos envolvidos e definir, com responsabilidade, o melhor caminho jurídico para cada situação.';
+export const valores = [
+  ['Excelência', 'Prestar serviços com eficiência e qualidade, superando as expectativas de cada um de nossos clientes.'],
+  ['Exclusividade', 'Cada cliente é atendido com exclusividade e de forma individualizada, como se fosse único.'],
+  ['Integridade e ética', 'Atuar de forma íntegra e ética na condução dos processos e na relação com os clientes e colaboradores.'],
+  ['Entusiasmo e dedicação', 'Buscar sempre atualizações, cursos e enriquecimentos doutrinários e jurisprudenciais para melhor atender à necessidade dos nossos clientes.'],
+  ['Lealdade, honestidade e transparência', 'Ser leal, honesto e transparente em nosso relacionamento com os clientes.'],
+  ['Agilidade', 'Atender nossos clientes o mais breve possível, conforme suas necessidades.'],
+  ['Confiança', 'Mostrar que nossos clientes podem confiar em nosso trabalho e competência.'],
+  ['Inovação', 'A tecnologia faz parte da advocacia que construímos. Utilizamos ferramentas digitais e inteligência artificial para tornar nossos processos internos e o atendimento mais ágeis e eficientes, sempre preservando a supervisão e a decisão humana naquilo que exige análise jurídica.'],
+];
 
-export const visao = 'Ser referência nacional em Direito do Trabalho, reconhecida pela experiência, honestidade, excelência técnica e atuação estratégica, aliando tradição e inovação para oferecer uma advocacia cada vez mais eficiente, acessível e próxima de cada cliente.';
+export const missao = 'Prestar assistência jurídica preventiva e contenciosa de qualidade, com excelência, profissionalismo, seriedade, honestidade e transparência, oferecendo soluções inovadoras, dinâmicas e eficazes, para a obtenção de resultados expressivos que garantam a satisfação de nossos clientes. Compreender cada história, identificar os direitos envolvidos e definir, com responsabilidade e transparência, o melhor caminho jurídico para cada situação.';
+
 
 // Avaliações reais do Google, enviadas pela cliente em 24/09/2026.
 // Selecionadas entre as que elogiam atendimento e competência: as que citam
 // resultado de processo ficaram de fora por conta do Provimento 205/2021.
 // Transcrição completa em material-institucional/textos/prova-social-google.md
+export const visao = 'Ser referência nacional em Direito do Trabalho, reconhecida pela experiência, honestidade, excelência técnica e atuação estratégica, aliando tradição e inovação para oferecer uma advocacia cada vez mais eficiente, acessível e próxima de cada cliente.';
+
 export const depoimentos = [
   {
     texto: 'Tive uma excelente experiência com este escritório de advocacia. A equipe é incrivelmente solícita, sempre disposta a responder qualquer pergunta com atenção e paciência. Recomendo sem hesitar para quem busca uma assessoria jurídica séria, competente e que transmite total confiança.',

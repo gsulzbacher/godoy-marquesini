@@ -8,7 +8,7 @@ import Faq from '../components/Faq.astro';
 import ContactForm from '../components/ContactForm.astro';
 import PostCard from '../components/PostCard.astro';
 import { areas, temasFrequentes } from '../data/areas.js';
-import { passos } from '../data/conteudo.js';
+import { passos, apresentacao } from '../data/conteudo.js';
 import { site, zap, u } from '../data/site.js';
 import { getCollection } from 'astro:content';
 
@@ -76,8 +76,8 @@ const schema = {
       <div class="sobre-text rv">
         <span class="kicker">O escritório</span>
         <h2>Uma advocacia boutique, próxima e técnica</h2>
-        <p style="margin-top:20px">A <strong>Godoy Marquesini Advocacia</strong> foi criada em 2016 pela <strong>Dra. Viviane Colacino de Godoy Marquesini</strong>, depois de 18 anos de advocacia corporativa, com o conceito de <strong>advocacia boutique</strong>: estrutura compacta, para que cada cliente seja atendido com exclusividade, como se fosse único.</p>
-        <p>Acreditamos que o cliente precisa <strong>entender o próprio caso</strong>. Por isso explicamos cada etapa em linguagem clara, sem juridiquês, e mantemos o acompanhamento próximo do começo ao fim, presencialmente em Bauru ou de forma online, para todo o país.</p>
+        <p style="margin-top:20px">{apresentacao[0]}</p>
+        <p>{apresentacao[2]}</p>
         <p>Toda situação começa com uma conversa: você conta o que aconteceu, avaliamos os documentos e explicamos com honestidade os caminhos possíveis, os prazos e os riscos.</p>
         <div class="sig">
           <a href={u("/o-escritorio")} class="btn btn-ghost">Conhecer o escritório</a>

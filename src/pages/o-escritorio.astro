@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import SectionHead from '../components/SectionHead.astro';
 import CtaFinal from '../components/CtaFinal.astro';
-import { valores, missao, visao } from '../data/conteudo.js';
+import { valores, missao, visao, apresentacao } from '../data/conteudo.js';
 import { site, u } from '../data/site.js';
 import { equipe } from '../data/equipe.js';
 
@@ -26,9 +26,7 @@ const viviane = equipe[0];
       <div class="sobre-text rv">
         <span class="kicker">Nossa história</span>
         <h2>Uma advocacia feita para atender de perto</h2>
-        <p style="margin-top:20px">A Godoy Marquesini Advocacia foi criada em 2016 pela <strong>Dra. Viviane Colacino de Godoy Marquesini</strong>, depois de 18 anos de experiência na advocacia corporativa, com o conceito de <strong>advocacia boutique</strong>: um escritório especializado, em que o cliente é atendido com exclusividade e de forma personalizada, como se fosse único.</p>
-        <p>Para atender as demais necessidades de quem já confiava no escritório, a equipe cresceu para o <strong>Direito Previdenciário</strong> e para as diversas áreas do <strong>Direito Civil</strong>. A estrutura seguiu compacta e eficiente, de propósito: é o que permite um trabalho inteligente, criativo e estratégico em cada caso, em vez de uma esteira de processos.</p>
-        <p>Com os processos digitais, a atuação se ampliou para fora de Bauru. Hoje a Godoy Marquesini está presente em <strong>18 estados e no Distrito Federal</strong>, com atendimento personalizado por videochamada e WhatsApp e, sempre que necessário, o suporte presencial de advogados e escritórios parceiros.</p>
+        {apresentacao.map((par, i) => <p style={i === 0 ? "margin-top:20px" : undefined}>{par}</p>)}
       </div>
     </div>
   </section>
