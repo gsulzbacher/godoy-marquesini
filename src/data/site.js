@@ -7,6 +7,9 @@ export const site = {
   observacaoHorario: 'Atendimento com hora marcada',
   cidade: 'Bauru/SP',
   oab: 'OAB/SP 155.874',
+  // o rodapé leva a inscrição da SOCIEDADE, não a pessoal da Dra. Viviane
+  oabSociedade: 'OAB/SP 52.232',
+  razaoSocial: 'Viviane Colacino de Godoy Marquesini Sociedade Individual de Advocacia',
   fundacao: 2016,
   anosDeAdvocacia: 28,
   estados: 18,

@@ -1,11 +1,10 @@
 export const faq = [
-  ['Vocês atendem em todo o Brasil?', 'Sim. O escritório fica em Bauru, no interior de São Paulo, e hoje atende clientes em 18 estados e no Distrito Federal. Com processos digitais, atendimento por videochamada e WhatsApp e, quando necessário, o apoio presencial de advogados e escritórios parceiros, cuidamos do seu caso onde quer que você esteja.'],
+  ['Vocês atendem em todo o Brasil?', 'Sim. O escritório fica em Bauru, no interior de São Paulo e atendemos clientes de todo o Brasil, por videochamada, whatsapp e de forma presencial, quando necessário, já estando presente em 18 estados brasileiros e no Distrito Federal.'],
   ['Vocês atendem pessoas físicas e empresas?', 'As duas. O escritório nasceu da experiência em advocacia corporativa e hoje atende tanto pessoas quanto empresas, nas áreas Trabalhista, Cível e Previdenciária, na via preventiva e na contenciosa.'],
   ['Como funciona a primeira conversa?', 'Você relata a situação pelo WhatsApp ou pelo formulário do site. A partir do que você contar, orientamos quais documentos reunir e marcamos um atendimento para avaliar o caso com calma.'],
   ['Já tenho advogado, mas não estou satisfeito. Posso trocar?', 'Sim, a qualquer momento. Escolher quem defende os seus interesses é um direito seu. A transição do processo costuma ser simples e orientamos cada passo.'],
-  ['O que é uma advocacia boutique?', 'É um escritório de estrutura compacta, que atende um número menor de casos para poder acompanhar cada um de perto. Na prática, significa que você fala com quem cuida do seu processo e não vira um número dentro de uma esteira.'],
-  ['Vocês garantem que eu vou ganhar a causa?', 'Não. Nenhum advogado pode garantir resultado, e isso é vedado pelo Código de Ética da OAB. O que fazemos é apresentar com honestidade as chances, os riscos e os prazos, para você decidir com informação.'],
-  ['Quanto tempo demora um processo?', 'Depende da complexidade do caso, da vara ou do órgão e da postura da outra parte. Na primeira conversa damos uma estimativa realista com base na nossa experiência, e atualizamos você conforme o processo anda.'],
+  ['Vocês garantem que eu vou ganhar a causa?', 'Nenhum advogado pode garantir o resultado de um processo judicial, até porque a advocacia é uma atividade de meio e não de fim. Mas garantimos uma análise criteriosa de cada caso, considerando os direitos envolvidos, as provas disponíveis e os riscos da demanda e consequentemente, o desenvolvimento de um trabalho de alta qualidade, na busca dos seus direitos.'],
+  ['Quanto tempo demora um processo?', 'A duração de um processo judicial varia conforme a complexidade do caso, a necessidade de produção de provas, a tramitação na Justiça e a possibilidade de recursos. Por isso, não é possível estabelecer um prazo exato. Nossa equipe acompanha cada etapa do processo e mantém o cliente informado sobre seu andamento, com transparência e responsabilidade.'],
 ];
 
 export const passos = [

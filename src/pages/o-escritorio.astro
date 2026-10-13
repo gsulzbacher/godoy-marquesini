@@ -21,11 +21,10 @@ const viviane = equipe[0];
       <div class="sobre-visual rv">
         <img src={u('/fotos/equipe/equipe.jpg')} alt="Equipe do Godoy Marquesini Advocacia reunida no escritório" width="1442" height="1091" loading="lazy" decoding="async" />
         <div class="frame"></div>
-        <div class="cap"><b>Equipe Godoy Marquesini</b>{site.cidade} · Atuação em todo o Brasil</div>
-      </div>
+              </div>
       <div class="sobre-text rv">
         <span class="kicker">Nossa história</span>
-        <h2>Uma advocacia feita para atender de perto</h2>
+        <h2>Uma trajetória construída com conhecimento, ética e compromisso</h2>
         {apresentacao.map((par, i) => <p style={i === 0 ? "margin-top:20px" : undefined}>{par}</p>)}
       </div>
     </div>
@@ -62,23 +61,15 @@ const viviane = equipe[0];
     <div class="wrap">
       <div class="responsavel rv">
         <div>
-          <span class="kicker">Responsável técnica</span>
+          <span class="kicker">Sócia fundadora</span>
           <h2>{viviane.nome}</h2>
           <p class="lead">{viviane.oab}</p>
-          {viviane.historia.map((par) => <p>{par}</p>)}
+          <p>{viviane.bio}</p>
           <p class="small-note">{viviane.oabSuplementar}.</p>
           <a class="btn btn-ghost" href={u('/equipe')}>Conhecer a equipe</a>
         </div>
         <img src={viviane.foto} alt={viviane.nome} width="900" height="1125" loading="lazy" decoding="async" style={`object-position:${viviane.pos}`} />
       </div>
-
-      <details class="trajetoria rv">
-        <summary>Formação e trajetória completa</summary>
-        <ul>
-          {viviane.trajetoria.map((item) => <li>{item}</li>)}
-          <li>Participação em diversos simpósios, congressos e palestras jurídicas.</li>
-        </ul>
-      </details>
     </div>
   </section>
 

@@ -19,13 +19,16 @@ import FoldDivider from './FoldDivider.astro';
 
   <div class="wrap">
     <div class="hero-inner">
-      <span class="kicker">Advocacia boutique · desde 2016</span>
       <h1 class="hero-frases">
         {banners.map((b, i) => (
           <span class="hero-frase" data-frase data-ativo={i === 0 ? 'true' : 'false'}>{b.frase}</span>
         ))}
       </h1>
-      <p class="lead">Mais de 28 anos de advocacia em Direito Trabalhista, Civil e Previdenciário, para pessoas e empresas. Atendimento individualizado, de Bauru para 18 estados e o Distrito Federal.</p>
+      <div class="hero-leads">
+        {banners.map((b, i) => (
+          b.lead && <p class="lead hero-lead" data-lead={i} data-ativo={i === 0 ? 'true' : 'false'}>{b.lead}</p>
+        ))}
+      </div>
       <div class="hero-cta">
         <a href={zap()} target="_blank" rel="noopener" class="btn">Quero analisar meu caso <span class="arw" aria-hidden="true">→</span></a>
         <a href={u('/areas')} class="btn btn-ghost">Conhecer as áreas</a>
@@ -83,6 +86,9 @@ import FoldDivider from './FoldDivider.astro';
         s.setAttribute('aria-hidden', on ? 'false' : 'true');
       });
       frases.forEach((f, k) => (f.dataset.ativo = k === atual ? 'true' : 'false'));
+      hero.querySelectorAll('[data-lead]').forEach((l) => {
+        l.dataset.ativo = Number(l.dataset.lead) === atual ? 'true' : 'false';
+      });
       [...pontos.children].forEach((b, k) => {
         b.classList.toggle('on', k === atual);
         b.setAttribute('aria-selected', k === atual ? 'true' : 'false');

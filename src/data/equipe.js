@@ -3,38 +3,16 @@ import { u } from './site.js';
 export const equipe = [
   {
     nome: 'Dra. Viviane Colacino de Godoy Marquesini',
-    curto: 'Dra. Viviane C. de Godoy Marquesini',
-    papel: 'Sócia fundadora · responsável técnica',
+    curto: 'Dra. Viviane Colacino de Godoy Marquesini',
+    papel: 'Sócia fundadora',
     oab: 'OAB/SP 155.874',
     oabSuplementar: 'Com inscrição suplementar na OAB/MG nº 252.809, OAB/RJ nº 260.923 e OAB/GO nº 79.440-A',
     area: 'Direito do Trabalho',
     foto: u('/fotos/equipe/viviane.jpg'),
     pos: '50% 28%',
-    bio: 'Formada pela Instituição Toledo de Ensino de Bauru desde 1997, começou a advogar em março de 1998 em um renomado escritório da cidade, nas áreas cível e trabalhista, com foco no atendimento a empresas.',
+    bio: 'Advogada graduada em Direito pela Instituição Toledo de Ensino de Bauru, com especialidade em Direito Constitucional pela mesma Instituição, pós-graduada em Direito do Trabalho e MBA em Direito do Trabalho pela Faculdade Legale, pós-graduada em Direito Empresarial e Direito Privado junto à Faculdade Legale e Direito do Trabalho pela FGV. Foi Conciliadora e Mediadora do Tribunal de Justiça do Estado de São Paulo nos anos de 2012/2015, Presidente da Comissão de Empreendedorismo Jurídico da OAB Bauru nas gestões 2019/2021 e 2022/2024, Coordenadora da 12ª Região da Comissão de Empreendedorismo Legal da OAB São Paulo na gestão 2022/2024, Membro-Convidada do Grupo de Estudos em Direito do Trabalho da USP/Ribeirão Preto. Iniciou seus trabalhos na Advocacia Zanlochi, foi sócia da Colacino & Morais Sociedade de Advogados, é Mentora de Advogados Recém Formados na Easy Mentoria Jurídica, Co-autora do livro Inteligência Artificial e Plataformas Digitais nas Relações de Trabalho, com o artigo sobre Segurança do Trabalho nas Plataformas Digitais e em 2016 fundou a Godoy Marquesini Advocacia, onde atua na direção jurídica e estratégica, com especial dedicação ao Direito do Trabalho.',
     // Narrativa da própria cliente, do documento institucional. Mantida perto
     // das palavras dela: é a história dela sendo contada.
-    historia: [
-      'A Dra. Viviane Colacino de Godoy Marquesini, é formada pela Instituição Toledo de Ensino de Bauru/SP, desde 1997. Começou a advogar em março/1998 em um renomado escritório de advocacia de Bauru/SP, atuando na área cível e trabalhista, com foco no atendimento a empresas.',
-      'Após 18 anos de experiência, especialização, MBA e uma paixão pelo Direito do Trabalho, sentiu a necessidade de oferecer uma advocacia diferenciada no mercado, tanto para pessoas físicas, quanto para pessoas jurídicas, onde o cliente pudesse ser atendido, com exclusividade e segurança, por profissionais especialistas.',
-      'Então, em 16 de março de 2016, iniciou as atividades da Godoy Marquesini Advocacia, um escritório jovem, dinâmico, com uma gestão inovadora, aliada a toda experiência desses mais de 28 anos de advocacia, para atender com qualidade e eficiência, não só na área Trabalhista, sua especialidade, mas também na área do Direito Civil, outra paixão que tem e mais recentemente, no Direito Previdenciário, áreas essas, que hoje são habilmente desenvolvidas pela sua equipe, sob a sua supervisão.',
-    ],
-    trajetoria: [
-      'Graduação em Direito pela Instituição Toledo de Ensino – Faculdade de Direito de Bauru – 1997',
-      'Especialização em Direito Constitucional - Centro de Pós-Graduação da Instituição Toledo de Ensino de Bauru – 1999',
-      'Reciclagem Profissional e Atualização Jurídica em Direito do Trabalho – Curso Preparatório Para Concursos – 2005',
-      'Pós-graduação em Direito do Trabalho – Fundação Getúlio Vargas – 2010',
-      'MBA em Direito do Trabalho e Direito Previdenciário – Faculdade Legale – 2018',
-      'Conciliadora e mediadora do Tribunal de Justiça do Estado de São Paulo – 2012 a 2015',
-      'Membro da Comissão da Mulher Advogada – OAB Bauru – 2016 a 2024',
-      'Membro e palestrante da Comissão OAB Vai à Escola – OAB Bauru – 2018 a 2024',
-      'Mentora de advogados recém-formados na área Cível e Trabalhista – Easy Mentoria Jurídica - desde 2016',
-      'Parceira associada ao CIESP BAURU – 2018/2019',
-      'Presidente da Comissão de Empreendedorismo Jurídico da OAB Bauru - 2019/2021 e 2022/2024',
-      'Coordenadora da 12ª Região da Comissão de Empreendedorismo Legal da OAB São Paulo na gestão 2022/2024',
-      'Membro-Convidada do Grupo de Estudos em Direito do Trabalho da USP/Ribeirão Preto 2022/2024',
-      'Co-autora do livro Inteligência Artificial e Plataformas Digitais nas Relações de Trabalho, com o artigo sobre Segurança do Trabalho nas Plataformas Digitais – Editora Am2 - 2024',
-      'Participação expressiva em diversos Simpósios, Congressos e Palestras jurídicas.',
-    ],
   },
   {
     nome: 'Dr. Eduardo Mangilli Pachelli',
@@ -47,8 +25,8 @@ export const equipe = [
     bio: 'Advogado graduado em Direito pela Instituição Toledo de Ensino, com atuação nas áreas de Direito Civil, Bancário, do Consumidor, Família, Sucessões e Contratual. Possui formação complementar em Direito Bancário, Direito Digital e Proteção de Dados (LGPD), Direito Securitário, Falência e Recuperação Judicial, por instituições como a Fundação Getulio Vargas (FGV), a Escola Superior da Advocacia (ESA) e o Damásio Educacional. Ao longo de sua trajetória profissional, atuou na advocacia privada, na Procuradoria da República em Bauru e na Defensoria Pública do Estado de São Paulo.',
   },
   {
-    nome: 'Dr. Rafael César Ramos',
-    curto: 'Dr. Rafael César Ramos',
+    nome: 'Dr. Rafael Cesar Ramos',
+    curto: 'Dr. Rafael Cesar Ramos',
     papel: 'Advogado trabalhista',
     oab: 'OAB/SP 509.158',
     area: 'Direito do Trabalho',
