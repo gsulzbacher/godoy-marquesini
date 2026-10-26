@@ -20,9 +20,9 @@ export const passos = [
 // conferir contra material-institucional/textos/INFORMAÇÕES PARA O SITE.docx
 
 export const apresentacao = [
-  'A GODOY MARQUESINI ADVOCACIA foi criada em 2016 pela Dra. Viviane Colacino de Godoy Marquesini, após 18 anos de experiência na advocacia corporativa, com o conceito de “advocacia boutique”, especializada em soluções na área do Direito Trabalhista, onde o diferencial é o cliente ser atendido com exclusividade e de forma personalizada, como se fosse único.',
+  'A GODOY MARQUESINI ADVOCACIA foi criada em 2016 pela Dra. Viviane Colacino de Godoy Marquesini, após 18 anos de experiência na advocacia especializada em soluções na área do Direito Trabalhista, onde o diferencial é o cliente ser atendido com exclusividade e de forma personalizada, como se fosse único.',
   'Ainda visando atender as demais necessidades de nossos clientes, contamos com uma equipe de alta performance no Direito Previdenciário e nas diversas áreas do Direito Civil.',
-  'O escritório com estrutura compacta e eficiente possui grande expertise, sempre com o objetivo de desenvolver um trabalho inteligente, de qualidade, criativo e estratégico na busca da melhor solução às questões apresentadas pelo cliente.',
+  'O escritório possui grande expertise, sempre com o objetivo de desenvolver um trabalho inteligente, de qualidade, criativo e estratégico na busca da melhor solução às questões apresentadas pelo cliente.',
   'Com o advento dos processos digitais, ampliamos nossa atuação e aproximamos nossa experiência de clientes em diferentes regiões do país. Atualmente, a Godoy Marquesini Advocacia está presente em 18 estados, além do Distrito Federal, oferecendo atendimento personalizado por Google Meet e WhatsApp e, sempre que necessário, contando com o suporte presencial de advogados e escritórios parceiros.',
 ];
 

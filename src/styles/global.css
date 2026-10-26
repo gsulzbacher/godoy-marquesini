@@ -47,7 +47,10 @@ body{
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
   touch-action:manipulation;-webkit-tap-highlight-color:rgba(7,1,43,.12);
 }
-img{max-width:100%;display:block}
+/* height:auto é obrigatório: o atributo height="" do <img> vira CSS height
+   e sobrepõe o aspect-ratio, esticando a imagem (aconteceu na foto da
+   sócia fundadora, que renderizou 456x1125 em vez de 4/3) */
+img{max-width:100%;height:auto;display:block}
 :focus-visible{outline:2px solid var(--navy);outline-offset:3px;border-radius:4px}
 .reviews :focus-visible,.contato :focus-visible,.hero :focus-visible,footer :focus-visible{outline-color:var(--gold-soft)}
 .skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--navy);color:#fff;padding:12px 20px;border-radius:0 0 8px 0;font-size:.85rem;font-weight:700}
@@ -348,7 +351,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);padding:60px 0 0;b
 .responsavel h2{color:var(--navy);margin-bottom:12px}
 .responsavel .lead{color:var(--gold);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
 .responsavel p{color:var(--ink-soft);margin-bottom:20px}
-.responsavel img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;box-shadow:0 26px 54px rgba(7,1,43,.2)}
+.responsavel img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 22%;border-radius:16px;box-shadow:0 26px 54px rgba(7,1,43,.2)}
 
 /* situações de cada área */
 .situacoes{display:grid;grid-template-columns:repeat(2,1fr);gap:30px 44px}
