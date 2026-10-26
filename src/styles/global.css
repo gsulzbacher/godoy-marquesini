@@ -615,40 +615,23 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.6);padding:60px 0 0;b
   background:var(--navy);min-height:680px;
   display:flex;flex-direction:column;justify-content:center;
 }
-/* A foto vive num painel à DIREITA e o texto num bloco à esquerda.
-   Motivo: na foto da Dra. Viviane ela está no lado esquerdo do quadro, que é
-   justo onde o texto mora. Em foto de fundo inteira não há enquadramento que
-   resolva (a imagem é mais alta que o hero, então o eixo X nem tem efeito):
-   ou o rosto fica cortado, ou fica atrás do título. Com o painel, o recorte
-   da foto é independente do texto. */
-.hero-slides{
-  position:absolute;inset:0 0 0 40%;z-index:0;overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 28%);
-  mask-image:linear-gradient(90deg,transparent 0,#000 28%);
-}
+/* A foto ocupa o fundo inteiro e por cima vai uma COR CHAPADA, sem degradê:
+   a mesma densidade em toda a área, então o texto tem sempre o mesmo contraste
+   e a foto não fica mais clara de um lado que do outro. */
+.hero-slides{position:absolute;inset:0;z-index:0;overflow:hidden}
 .hero-carrossel::before{
   content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(90deg,
-    rgba(7,1,43,.55) 0%,
-    rgba(7,1,43,.25) 30%,
-    rgba(7,1,43,0) 48%);
+  background:rgba(7,1,43,.76);
 }
-.hero-carrossel .hero-inner{max-width:520px}
-
-/* no celular não há espaço para duas colunas: a foto volta a ser fundo
-   inteiro, com o escuro por cima para o texto continuar legível */
 @media(max-width:940px){
   .hero-carrossel{min-height:0;display:block}
-  .hero-slides{inset:0;-webkit-mask-image:none;mask-image:none}
-  .hero-carrossel::before{
-    background:linear-gradient(180deg,rgba(7,1,43,.88) 0%,rgba(7,1,43,.81) 55%,rgba(7,1,43,.75) 100%);
-  }
-  .hero-carrossel .hero-inner{max-width:none}
+  .hero-carrossel::before{background:rgba(7,1,43,.82)}
 }
 
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
 .hero-slide[data-ativo="true"]{opacity:1}
-.hero-slide img{width:100%;height:100%;object-fit:cover}
+.hero-slide img{width:100%;height:100%;object-fit:cover;object-position:var(--foco,50% 50%)}
+@media(max-width:700px){.hero-slide img{object-position:var(--foco-m,var(--foco,50% 50%))}}
 
 /* as frases ocupam o mesmo espaço: a mais alta reserva a altura */
 /* mais ar acima da frase, que é a protagonista da dobra */

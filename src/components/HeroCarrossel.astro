@@ -12,7 +12,7 @@ import FoldDivider from './FoldDivider.astro';
             baixam em segundo plano. */}
         <img src={b.img} alt={i === 0 ? b.alt : ''} width="1800" height="1201"
              loading="eager" fetchpriority={i === 0 ? 'high' : 'low'}
-             decoding="async" style={`object-position:${b.foco}`} />
+             decoding="async" style={`--foco:${b.foco};--foco-m:${b.focoM || b.foco}`} />
       </div>
     ))}
   </div>
